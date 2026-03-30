@@ -6,529 +6,679 @@
     <title>Asad Abbasi — Senior Product Leader</title>
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <meta name="description" content="Senior Product Leader with 15+ years building B2C, D2C, Gaming, eCommerce, Data, and AI products at scale. Available for senior product leadership and consultancy engagements.">
+    <meta name="description" content="Senior Product Leader with 15+ years building B2C, D2C, Gaming, eCommerce, Data, and AI products at scale.">
     <meta name="keywords" content="Senior Product Leader, VP Product, Director of Product, Product Management, B2C, D2C, Gaming, eCommerce, Data Products, AI Solutions, Asad Abbasi">
     <meta name="author" content="Asad Abbasi">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://asadabbasi.github.io/portfolio/">
     <meta property="og:title" content="Asad Abbasi — Senior Product Leader">
     <meta property="og:description" content="15+ years building products that scale. B2C, Gaming, eCommerce, Data & AI.">
     <meta property="og:image" content="https://asadabbasi.github.io/portfolio/images/asadprofile.png">
-
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://asadabbasi.github.io/portfolio/">
-    <meta property="twitter:title" content="Asad Abbasi — Senior Product Leader">
-    <meta property="twitter:description" content="15+ years building products that scale. B2C, Gaming, eCommerce, Data & AI.">
     <meta property="twitter:image" content="https://asadabbasi.github.io/portfolio/images/asadprofile.png">
 
     <style>
-        /* ===== Variables ===== */
+        /* ══════════════════════════════════════
+           VARIABLES & RESET
+        ══════════════════════════════════════ */
         :root {
-            --bg-primary:     #0d1117;
-            --bg-secondary:   #161b22;
-            --bg-card:        #1c2333;
-            --accent-blue:    #2563eb;
-            --accent-blue-lt: #3b82f6;
-            --accent-amber:   #d97706;
-            --text-primary:   #e6edf3;
-            --text-secondary: #8b949e;
-            --border:         #30363d;
-            --border-light:   #21262d;
-            --shadow:         0 4px 24px rgba(0,0,0,0.4);
+            --bg:        #030712;
+            --panel:     rgba(5,12,30,0.82);
+            --blue:      #2563eb;
+            --blue-lt:   #3b82f6;
+            --cyan:      #06b6d4;
+            --amber:     #d97706;
+            --purple:    #7c3aed;
+            --text:      #e2e8f0;
+            --dim:       #94a3b8;
+            --border:    rgba(59,130,246,0.22);
+            --glow-sm:   0 0 14px rgba(59,130,246,0.35);
+            --glow-md:   0 0 28px rgba(59,130,246,0.40);
+            --glow-lg:   0 0 50px rgba(59,130,246,0.30);
+            --shadow:    0 12px 48px rgba(0,0,0,0.65);
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI',Tahoma,Geneva,sans-serif; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-        body { color:var(--text-primary); line-height:1.7; background-color:var(--bg-primary); }
+        html { scroll-behavior:smooth; }
 
-        /* ===== Nav ===== */
-        nav.site-nav {
-            position:fixed; top:0; left:0; right:0; z-index:100;
-            background:rgba(13,17,23,0.92);
-            backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-            border-bottom:1px solid var(--border);
+        body {
+            font-family:'Inter','Segoe UI',sans-serif;
+            background:var(--bg); color:var(--text);
+            line-height:1.7; overflow-x:hidden;
         }
 
-        .nav-container {
-            max-width:1200px; margin:0 auto; padding:0 24px;
-            display:flex; justify-content:space-between; align-items:center; height:60px;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width:4px; }
+        ::-webkit-scrollbar-track { background:#030712; }
+        ::-webkit-scrollbar-thumb { background:var(--blue); border-radius:2px; }
+
+        /* ══════════════════════════════════════
+           THREE.JS CANVAS
+        ══════════════════════════════════════ */
+        #bg-canvas {
+            position:fixed; top:0; left:0;
+            width:100%; height:100%;
+            z-index:0; pointer-events:none;
         }
 
-        .nav-brand { font-size:.95rem; font-weight:600; color:var(--text-primary); text-decoration:none; letter-spacing:.01em; }
+        /* ══════════════════════════════════════
+           APP WRAPPER
+        ══════════════════════════════════════ */
+        #app { position:relative; z-index:1; }
 
-        .nav-links { display:flex; gap:22px; align-items:center; }
+        /* ══════════════════════════════════════
+           GLASS MORPHISM
+        ══════════════════════════════════════ */
+        .glass {
+            background:var(--panel);
+            backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
+            border:1px solid var(--border);
+            border-radius:16px;
+            box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .glass-sm {
+            background:rgba(5,12,30,0.70);
+            backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+            border:1px solid rgba(59,130,246,0.16);
+            border-radius:10px;
+            box-shadow:0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        /* ══════════════════════════════════════
+           NAV
+        ══════════════════════════════════════ */
+        .nav {
+            position:fixed; top:0; left:0; right:0; z-index:200;
+            background:rgba(3,7,18,0.85);
+            backdrop-filter:blur(28px); -webkit-backdrop-filter:blur(28px);
+            border-bottom:1px solid rgba(59,130,246,0.13);
+        }
+
+        .nav-inner {
+            max-width:1200px; margin:0 auto; padding:0 32px;
+            display:flex; justify-content:space-between; align-items:center;
+            height:64px;
+        }
+
+        .nav-brand {
+            font-size:.98rem; font-weight:800; text-decoration:none; letter-spacing:-.02em;
+            background:linear-gradient(135deg,#e2e8f0 0%,#93c5fd 60%,#3b82f6 100%);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+
+        .nav-links { display:flex; gap:24px; align-items:center; }
 
         .nav-links a {
-            color:var(--text-secondary); text-decoration:none; font-size:.82rem;
-            font-weight:500; transition:color .15s ease; letter-spacing:.01em;
+            color:var(--dim); text-decoration:none; font-size:.78rem;
+            font-weight:500; letter-spacing:.06em; text-transform:uppercase;
+            transition:color .2s;
         }
 
-        .nav-links a:hover { color:var(--text-primary); }
+        .nav-links a:hover { color:var(--blue-lt); }
 
-        /* ===== Container ===== */
-        .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+        /* ══════════════════════════════════════
+           CONTAINER
+        ══════════════════════════════════════ */
+        .container { max-width:1140px; margin:0 auto; padding:0 32px; }
 
-        /* ===== Header ===== */
-        header {
-            background:linear-gradient(160deg,#0d1117 0%,#0f1f3d 55%,#0d1117 100%);
-            padding:100px 0 60px; position:relative; overflow:hidden;
-            border-bottom:1px solid var(--border);
+        /* ══════════════════════════════════════
+           HERO
+        ══════════════════════════════════════ */
+        .hero {
+            min-height:100vh;
+            display:flex; align-items:center; justify-content:center;
+            padding:80px 32px 60px;
         }
 
-        header::after {
-            content:''; position:absolute; top:-30%; right:-10%;
-            width:700px; height:700px;
-            background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 65%);
-            pointer-events:none;
+        .hero-grid {
+            max-width:1100px; width:100%;
+            display:grid; grid-template-columns:1fr 1.15fr;
+            gap:64px; align-items:center;
         }
 
-        .profile-container {
-            display:flex; justify-content:center; align-items:center;
-            gap:56px; flex-wrap:wrap; position:relative; z-index:1;
+        /* ---- Profile orb ---- */
+        .profile-side { display:flex; flex-direction:column; align-items:center; gap:28px; }
+
+        .orb-wrap {
+            position:relative; width:240px; height:240px;
+            display:flex; align-items:center; justify-content:center;
         }
 
-        .profile-image img {
-            width:152px; height:152px; border-radius:50%; object-fit:cover;
-            border:2px solid var(--border);
-            box-shadow:0 0 0 5px rgba(37,99,235,.18), var(--shadow);
-            background-color:var(--bg-secondary);
+        .orb-wrap img {
+            width:196px; height:196px; border-radius:50%; object-fit:cover;
+            border:2px solid rgba(59,130,246,0.55);
+            box-shadow:0 0 40px rgba(59,130,246,0.50), 0 0 80px rgba(59,130,246,0.18);
+            position:relative; z-index:3;
         }
 
-        .profile-eyebrow {
-            font-size:.78rem; font-weight:600; color:var(--accent-blue-lt);
-            text-transform:uppercase; letter-spacing:.12em; margin-bottom:10px;
+        /* Scanlines on top of image */
+        .orb-scan {
+            position:absolute; inset:22px; border-radius:50%; z-index:4; pointer-events:none;
+            background:repeating-linear-gradient(
+                0deg, transparent, transparent 3px,
+                rgba(59,130,246,0.03) 3px, rgba(59,130,246,0.03) 6px
+            );
+            animation:scanmove 6s linear infinite;
         }
 
-        .profile-details h1 {
-            font-size:2.4rem; font-weight:700; letter-spacing:-.025em;
-            margin-bottom:8px; line-height:1.15;
+        @keyframes scanmove {
+            from { background-position:0 0; }
+            to   { background-position:0 300px; }
         }
 
-        .profile-details h2 {
-            font-size:1rem; font-weight:400; color:var(--text-secondary);
-            margin-bottom:12px; max-width:480px; line-height:1.5;
+        /* Rotating rings */
+        .orb-ring {
+            position:absolute; border-radius:50%;
+            border:1px solid rgba(59,130,246,0.38); top:0; left:0;
+            width:100%; height:100%;
         }
 
-        .profile-domains { font-size:.82rem; color:var(--text-secondary); letter-spacing:.03em; margin-bottom:20px; }
-
-        .hero-stats { display:flex; gap:28px; margin-bottom:24px; flex-wrap:wrap; }
-
-        .hero-stat { text-align:left; }
-
-        .hero-stat-value {
-            font-size:1.65rem; font-weight:700; color:var(--text-primary);
-            line-height:1; margin-bottom:4px; letter-spacing:-.02em;
+        .orb-ring::after {
+            content:''; position:absolute; top:-5px; left:50%;
+            transform:translateX(-50%);
+            width:10px; height:10px; border-radius:50%;
+            background:var(--blue-lt);
+            box-shadow:0 0 16px var(--blue-lt), 0 0 30px rgba(59,130,246,0.5);
         }
 
-        .hero-stat-label {
-            font-size:.72rem; color:var(--text-secondary);
-            text-transform:uppercase; letter-spacing:.1em; font-weight:500;
+        .orb-ring-a { animation:rspin 7s linear infinite; }
+        .orb-ring-b {
+            width:114%; height:114%; top:-7%; left:-7%;
+            border-color:rgba(6,182,212,0.28); animation:rspin 11s linear infinite reverse;
+        }
+        .orb-ring-b::after { background:var(--cyan); box-shadow:0 0 16px var(--cyan); }
+        .orb-ring-c {
+            width:130%; height:130%; top:-15%; left:-15%;
+            border-color:rgba(124,58,237,0.20); animation:rspin 16s linear infinite;
+        }
+        .orb-ring-c::after { background:var(--purple); box-shadow:0 0 16px var(--purple); }
+
+        @keyframes rspin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+        /* Status badge */
+        .avail-badge {
+            display:inline-flex; align-items:center; gap:8px;
+            padding:7px 16px; border-radius:24px;
+            background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.3);
+            font-size:.72rem; font-weight:600; color:#34d399; letter-spacing:.06em;
         }
 
-        .hero-stat-divider { width:1px; background:var(--border); align-self:stretch; }
+        .avail-dot {
+            width:7px; height:7px; border-radius:50%; background:#10b981;
+            box-shadow:0 0 8px #10b981; animation:pulse 2s ease-in-out infinite;
+        }
 
-        .action-buttons { display:flex; gap:12px; flex-wrap:wrap; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+        /* ---- Hero text ---- */
+
+        .hero-eyebrow {
+            display:flex; align-items:center; gap:10px;
+            font-size:.72rem; font-weight:600; letter-spacing:.16em;
+            text-transform:uppercase; color:var(--cyan); margin-bottom:16px;
+        }
+
+        .hero-eyebrow::before {
+            content:''; width:32px; height:1px; background:var(--cyan);
+            display:inline-block; flex-shrink:0;
+        }
+
+        .hero-name {
+            font-size:clamp(2.6rem,5.5vw,4rem);
+            font-weight:900; letter-spacing:-.035em; line-height:1.05;
+            margin-bottom:18px;
+            background:linear-gradient(135deg,#f1f5f9 0%,#bfdbfe 50%,#3b82f6 100%);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+
+        .hero-tagline {
+            font-size:1.05rem; color:var(--dim); line-height:1.65; margin-bottom:10px;
+        }
+
+        .hero-domains {
+            font-size:.78rem; color:var(--dim); letter-spacing:.05em;
+            margin-bottom:34px; opacity:.7;
+        }
+
+        /* Stat chips */
+        .hero-stats { display:flex; gap:14px; margin-bottom:34px; flex-wrap:wrap; }
+
+        .stat-pill {
+            padding:13px 20px; border-radius:12px; text-align:center; cursor:default;
+            background:rgba(37,99,235,0.07); border:1px solid rgba(59,130,246,0.20);
+            transition:all .3s ease;
+        }
+
+        .stat-pill:hover {
+            background:rgba(37,99,235,0.15);
+            border-color:rgba(59,130,246,0.55);
+            box-shadow:var(--glow-sm); transform:translateY(-3px);
+        }
+
+        .stat-val {
+            font-size:1.75rem; font-weight:800; color:var(--text);
+            letter-spacing:-.03em; line-height:1;
+        }
+
+        .stat-lbl {
+            font-size:.62rem; color:var(--dim); text-transform:uppercase;
+            letter-spacing:.1em; font-weight:500; margin-top:4px;
+        }
+
+        /* Buttons */
+        .btn-row { display:flex; gap:12px; flex-wrap:wrap; }
 
         .btn {
-            padding:10px 22px; border-radius:6px; border:none; cursor:pointer;
-            font-weight:500; font-size:.875rem; transition:all .2s ease;
-            text-decoration:none; display:inline-block; letter-spacing:.01em; font-family:inherit;
+            padding:12px 26px; border-radius:8px; font-weight:600;
+            font-size:.875rem; cursor:pointer; text-decoration:none;
+            display:inline-flex; align-items:center; gap:8px;
+            font-family:inherit; border:none; transition:all .25s ease;
+            letter-spacing:.01em; white-space:nowrap;
         }
 
-        .btn-primary { background-color:var(--accent-blue); color:#fff; }
-
-        .btn-primary:hover { background-color:#1d4ed8; transform:translateY(-1px); box-shadow:0 4px 12px rgba(37,99,235,.35); }
-
-        .btn-outline { background-color:transparent; color:var(--text-primary); border:1px solid var(--border); }
-
-        .btn-outline:hover { background-color:var(--bg-secondary); border-color:var(--accent-blue-lt); transform:translateY(-1px); }
-
-        /* ===== Sections ===== */
-        section { padding:60px 0; }
-
-        .sec-heading {
-            text-align:center; font-size:1.45rem; font-weight:700;
-            margin-bottom:36px; color:var(--text-primary); letter-spacing:-.015em;
+        .btn-primary {
+            background:linear-gradient(135deg,#2563eb,#1d4ed8);
+            color:#fff; box-shadow:0 0 22px rgba(37,99,235,0.45);
         }
 
-        .sec-heading::after {
-            content:''; display:block; width:30px; height:3px;
-            background:var(--accent-blue); margin:10px auto 0; border-radius:2px;
+        .btn-primary:hover {
+            box-shadow:0 0 40px rgba(37,99,235,0.70); transform:translateY(-2px);
         }
 
-        /* ===== Two-column layout ===== */
-        .sec-layout {
-            display:grid; grid-template-columns:210px 1fr;
-            gap:36px; max-width:1100px; margin:0 auto; align-items:start;
+        .btn-ghost {
+            background:transparent; color:var(--text);
+            border:1px solid rgba(59,130,246,0.28);
         }
 
-        .sec-nav { position:sticky; top:76px; }
-
-        .sec-nav-label {
-            font-size:.65rem; font-weight:600; color:var(--text-secondary);
-            text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px; padding-left:4px;
+        .btn-ghost:hover {
+            border-color:var(--blue-lt);
+            background:rgba(59,130,246,0.08);
+            box-shadow:0 0 18px rgba(59,130,246,0.18);
         }
 
-        .sec-nav-item {
+        /* ══════════════════════════════════════
+           SECTIONS
+        ══════════════════════════════════════ */
+        .section { padding:88px 0; }
+
+        /* Section heading */
+        .sec-head { margin-bottom:52px; }
+
+        .sec-label {
+            font-size:.68rem; font-weight:700; text-transform:uppercase;
+            letter-spacing:.18em; color:var(--cyan); margin-bottom:10px;
+            display:flex; align-items:center; gap:10px;
+        }
+
+        .sec-label::before {
+            content:''; width:24px; height:1px; background:var(--cyan);
+        }
+
+        .sec-title {
+            font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800;
+            letter-spacing:-.025em; color:var(--text);
+        }
+
+        .sec-title .accent { color:var(--blue-lt); }
+
+        /* ══════════════════════════════════════
+           TWO-COLUMN TAB LAYOUT
+        ══════════════════════════════════════ */
+        .tab-layout {
+            display:grid; grid-template-columns:220px 1fr; gap:28px; align-items:start;
+        }
+
+        .tab-nav { position:sticky; top:80px; }
+
+        .tab-nav-label {
+            font-size:.63rem; font-weight:700; color:var(--dim);
+            text-transform:uppercase; letter-spacing:.1em;
+            margin-bottom:10px; padding-left:4px;
+        }
+
+        .tab-btn {
             display:block; width:100%; text-align:left;
-            padding:9px 13px; border-radius:6px;
+            padding:10px 14px; border-radius:8px; cursor:pointer;
             border:1px solid transparent; background:transparent;
-            color:var(--text-secondary); font-size:.85rem; font-weight:500;
-            cursor:pointer; transition:all .15s ease;
-            font-family:inherit; margin-bottom:3px; line-height:1.3;
+            color:var(--dim); font-size:.84rem; font-weight:500;
+            font-family:inherit; transition:all .15s; margin-bottom:4px;
+            line-height:1.35;
         }
 
-        .sec-nav-item:hover { background:var(--bg-card); color:var(--text-primary); border-color:var(--border); }
+        .tab-btn:hover { background:rgba(59,130,246,0.07); color:var(--text); border-color:var(--border); }
 
-        .sec-nav-item.active { background:rgba(59,130,246,.1); border-color:rgba(59,130,246,.25); color:var(--accent-blue-lt); }
+        .tab-btn.active {
+            background:rgba(59,130,246,0.12); border-color:rgba(59,130,246,0.32);
+            color:var(--blue-lt);
+        }
 
-        .nav-item-sub { display:block; font-size:.7rem; margin-top:2px; opacity:.65; }
+        .tab-sub { display:block; font-size:.68rem; margin-top:2px; opacity:.6; }
+        .tab-btn.active .tab-sub { color:var(--blue-lt); }
 
-        .sec-nav-item.active .nav-item-sub { color:var(--accent-blue-lt); }
+        .tab-panel { display:none; }
+        .tab-panel.active { display:block; animation:fadeUp .25s ease; }
 
-        .sec-panel { display:none; }
-
-        .sec-panel.active { display:block; animation:fadeIn .2s ease; }
-
-        @keyframes fadeIn {
-            from { opacity:0; transform:translateY(5px); }
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(8px); }
             to   { opacity:1; transform:translateY(0); }
         }
 
-        /* ===== About ===== */
-        #about { background-color:var(--bg-secondary); }
+        /* ══════════════════════════════════════
+           ABOUT SECTION
+        ══════════════════════════════════════ */
+        .about-grid { display:grid; grid-template-columns:280px 1fr; gap:24px; align-items:start; }
 
-        .about-layout {
-            display:grid; grid-template-columns:210px 1fr;
-            gap:36px; max-width:1100px; margin:0 auto; align-items:start;
-        }
-
-        .about-sidebar { position:sticky; top:76px; }
+        .about-sidebar { display:flex; flex-direction:column; gap:10px; }
 
         .about-stat {
-            padding:13px 15px; background:var(--bg-card);
-            border:1px solid var(--border); border-radius:8px; margin-bottom:8px;
+            padding:16px 18px;
+            background:rgba(37,99,235,0.07);
+            border:1px solid rgba(59,130,246,0.16);
+            border-radius:10px;
         }
 
-        .about-stat-value {
-            font-size:1.5rem; font-weight:700; color:var(--text-primary);
-            letter-spacing:-.02em; line-height:1; margin-bottom:3px;
+        .about-stat-val {
+            font-size:1.65rem; font-weight:800; color:var(--text);
+            letter-spacing:-.03em; line-height:1;
         }
 
-        .about-stat-label {
-            font-size:.68rem; color:var(--text-secondary);
-            text-transform:uppercase; letter-spacing:.08em; font-weight:500;
+        .about-stat-lbl {
+            font-size:.65rem; text-transform:uppercase; letter-spacing:.09em;
+            color:var(--dim); margin-top:4px; font-weight:500;
         }
 
-        .about-links { margin-top:14px; display:flex; flex-direction:column; gap:7px; }
+        .about-links { margin-top:4px; display:flex; flex-direction:column; gap:8px; }
 
         .about-link {
-            display:flex; align-items:center; gap:8px;
-            padding:9px 13px; border-radius:6px;
-            border:1px solid var(--border); background:transparent;
-            color:var(--text-secondary); font-size:.82rem; font-weight:500;
-            text-decoration:none; transition:all .15s ease;
+            display:flex; align-items:center; gap:9px;
+            padding:10px 14px; border-radius:8px;
+            border:1px solid var(--border); color:var(--dim);
+            font-size:.82rem; font-weight:500; text-decoration:none;
+            transition:all .2s;
         }
 
-        .about-link:hover { background:var(--bg-card); color:var(--text-primary); border-color:var(--accent-blue-lt); }
-
-        .about-body p {
-            color:var(--text-secondary); line-height:1.75; font-size:.95rem; margin-bottom:20px;
+        .about-link:hover {
+            border-color:var(--blue-lt); color:var(--text);
+            background:rgba(59,130,246,0.07);
         }
 
-        .chips { display:flex; flex-wrap:wrap; gap:8px; }
+        .about-body { padding:32px; }
+        .about-body p { color:var(--dim); line-height:1.8; font-size:.95rem; margin-bottom:26px; }
+
+        /* Chips */
+        .chips { display:flex; flex-wrap:wrap; gap:9px; }
 
         .chip {
-            font-size:.74rem; font-weight:500; color:var(--accent-blue-lt);
-            background:rgba(59,130,246,.1); border:1px solid rgba(59,130,246,.22);
-            border-radius:20px; padding:4px 12px; letter-spacing:.01em; white-space:nowrap;
+            font-size:.73rem; font-weight:500; color:var(--blue-lt);
+            background:rgba(59,130,246,0.10); border:1px solid rgba(59,130,246,0.20);
+            border-radius:20px; padding:5px 14px; transition:all .2s; cursor:default;
         }
 
-        /* ===== Experience ===== */
-        .exp-header {
-            display:flex; align-items:center; gap:15px;
-            margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--border);
+        .chip:hover {
+            background:rgba(59,130,246,0.20); border-color:var(--blue-lt);
+            box-shadow:0 0 12px rgba(59,130,246,0.25);
         }
+
+        /* ══════════════════════════════════════
+           EXPERIENCE / TILT CARDS
+        ══════════════════════════════════════ */
+        .tilt {
+            transform-style:preserve-3d;
+            will-change:transform;
+            transition:box-shadow .15s ease;
+        }
+
+        .exp-card { padding:28px; }
+
+        .exp-header { display:flex; align-items:center; gap:16px; margin-bottom:20px; padding-bottom:18px; border-bottom:1px solid rgba(59,130,246,0.12); }
 
         .exp-logo {
-            width:48px; height:48px; border-radius:8px;
-            background:var(--bg-secondary); border:1px solid var(--border);
+            width:50px; height:50px; border-radius:10px;
+            background:rgba(37,99,235,0.10);
+            border:1px solid rgba(59,130,246,0.20);
             display:flex; align-items:center; justify-content:center;
-            flex-shrink:0; overflow:hidden;
+            overflow:hidden; flex-shrink:0;
         }
 
-        .exp-logo img { width:100%; height:100%; object-fit:contain; padding:5px; }
+        .exp-logo img { width:100%; height:100%; object-fit:contain; padding:6px; }
 
-        .exp-period { font-size:.68rem; color:var(--accent-amber); font-weight:600; text-transform:uppercase; letter-spacing:.09em; margin-bottom:3px; }
-
-        .exp-company { font-size:.97rem; font-weight:600; color:var(--text-primary); margin-bottom:2px; }
-
-        .exp-title { font-size:.83rem; color:var(--accent-blue-lt); font-weight:500; }
-
-        /* ===== Shared panel content ===== */
-        .panel-title { font-size:1.05rem; font-weight:600; color:var(--text-primary); margin-bottom:6px; letter-spacing:-.01em; }
-
-        .panel-desc { color:var(--text-secondary); font-size:.9rem; line-height:1.7; margin-bottom:16px; }
-
-        .item-list { list-style:none; padding:0; margin:0; }
-
-        .item-list li {
-            color:var(--text-secondary); font-size:.9rem;
-            padding:9px 0 9px 20px; position:relative;
-            border-bottom:1px solid var(--border-light); line-height:1.6;
+        .exp-period {
+            font-size:.67rem; font-weight:700; color:var(--amber);
+            text-transform:uppercase; letter-spacing:.09em; margin-bottom:3px;
         }
 
-        .item-list li:last-child { border-bottom:none; }
+        .exp-company { font-size:.98rem; font-weight:700; color:var(--text); margin-bottom:2px; }
+        .exp-role { font-size:.84rem; color:var(--blue-lt); font-weight:500; }
 
-        .item-list li::before {
+        /* ══════════════════════════════════════
+           SHARED PANEL CONTENT
+        ══════════════════════════════════════ */
+        .panel-card { padding:28px; }
+
+        .panel-title { font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:8px; }
+
+        .panel-desc { color:var(--dim); font-size:.9rem; line-height:1.75; margin-bottom:18px; }
+
+        .bullet-list { list-style:none; padding:0; margin:0; }
+
+        .bullet-list li {
+            color:var(--dim); font-size:.9rem; padding:9px 0 9px 20px;
+            position:relative; border-bottom:1px solid rgba(255,255,255,0.04);
+            line-height:1.65;
+        }
+
+        .bullet-list li:last-child { border-bottom:none; }
+
+        .bullet-list li::before {
             content:''; position:absolute; left:0; top:18px;
-            width:8px; height:2px; background:var(--accent-blue-lt); border-radius:1px;
+            width:8px; height:2px; background:var(--blue-lt); border-radius:1px;
         }
 
-        /* ===== Case Studies ===== */
-        #case-study { background-color:var(--bg-secondary); }
-
+        /* ══════════════════════════════════════
+           METRICS
+        ══════════════════════════════════════ */
         .metrics-grid {
-            display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
-            gap:10px; margin-top:16px;
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr));
+            gap:12px; margin-top:20px;
         }
 
         .metric {
-            text-align:center; padding:16px 10px;
-            background:var(--bg-primary); border:1px solid var(--border);
-            border-radius:8px; border-top:3px solid var(--accent-blue);
+            padding:20px 12px; text-align:center;
+            border-top:2px solid var(--blue); border-radius:0 0 10px 10px;
+            transition:all .3s; cursor:default;
+        }
+
+        .metric:hover {
+            border-top-color:var(--cyan); transform:translateY(-5px);
+            box-shadow:0 8px 24px rgba(0,0,0,0.4), 0 0 16px rgba(59,130,246,0.15);
         }
 
         .metric-value {
-            font-size:1.55rem; font-weight:700; color:var(--accent-blue-lt);
+            font-size:1.55rem; font-weight:800; color:var(--blue-lt);
             margin-bottom:5px; letter-spacing:-.02em; line-height:1;
         }
 
-        .metric-label { color:var(--text-secondary); font-size:.68rem; text-transform:uppercase; letter-spacing:.07em; font-weight:500; }
+        .metric-label { color:var(--dim); font-size:.65rem; text-transform:uppercase; letter-spacing:.07em; font-weight:500; }
 
-        /* ===== Services ===== */
+        /* Service tag */
         .svc-tag {
-            font-size:.67rem; font-weight:500; color:var(--accent-amber);
-            background:rgba(217,119,6,.1); border:1px solid rgba(217,119,6,.22);
-            border-radius:20px; padding:3px 10px; display:inline-block;
-            margin-bottom:12px; letter-spacing:.04em; text-transform:uppercase;
+            font-size:.67rem; font-weight:600; text-transform:uppercase;
+            letter-spacing:.08em; color:var(--amber);
+            background:rgba(217,119,6,0.10); border:1px solid rgba(217,119,6,0.22);
+            border-radius:20px; padding:3px 12px; display:inline-block;
+            margin-bottom:14px;
         }
 
-        /* ===== Travel & Photography ===== */
-        #travel { background-color:var(--bg-primary); }
+        /* ══════════════════════════════════════
+           TRAVEL
+        ══════════════════════════════════════ */
+        .travel-grid { display:grid; grid-template-columns:240px 1fr; gap:28px; }
 
-        .travel-layout {
-            display:grid; grid-template-columns:210px 1fr;
-            gap:36px; max-width:1100px; margin:0 auto; align-items:start;
-        }
-
-        .travel-sidebar { position:sticky; top:76px; }
-
-        .travel-sidebar h3 { font-size:1rem; font-weight:600; color:var(--text-primary); margin-bottom:10px; letter-spacing:-.01em; }
-
-        .travel-sidebar p { color:var(--text-secondary); font-size:.87rem; line-height:1.7; margin-bottom:18px; }
+        .travel-sidebar h3 { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:10px; }
+        .travel-sidebar p { color:var(--dim); font-size:.87rem; line-height:1.7; margin-bottom:18px; }
 
         .travel-tags { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:20px; }
 
         .travel-tag {
-            font-size:.7rem; font-weight:500; color:var(--accent-amber);
-            background:rgba(217,119,6,.1); border:1px solid rgba(217,119,6,.22);
-            border-radius:20px; padding:3px 10px; white-space:nowrap;
+            font-size:.68rem; font-weight:500; color:var(--amber);
+            background:rgba(217,119,6,0.10); border:1px solid rgba(217,119,6,0.22);
+            border-radius:20px; padding:3px 10px;
         }
 
-        .dest-list { list-style:none; padding:0; margin:0; border-top:1px solid var(--border-light); }
+        .dest-list { list-style:none; padding:0; margin:0; border-top:1px solid rgba(255,255,255,0.06); }
 
         .dest-list li {
             display:flex; align-items:center; gap:9px;
-            font-size:.82rem; color:var(--text-secondary);
-            padding:8px 0; border-bottom:1px solid var(--border-light);
+            font-size:.82rem; color:var(--dim);
+            padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);
         }
 
-        .dest-dot { width:6px; height:6px; border-radius:50%; background:var(--accent-amber); flex-shrink:0; }
+        .dest-dot { width:6px; height:6px; border-radius:50%; background:var(--amber); flex-shrink:0; }
 
+        /* Photo grid */
         .photo-grid {
             display:grid; grid-template-columns:repeat(3,1fr);
-            grid-auto-rows:188px; gap:10px;
+            grid-auto-rows:190px; gap:10px;
         }
 
         .photo-item {
-            position:relative; border-radius:8px; overflow:hidden;
-            background:var(--bg-card); border:1px solid var(--border); cursor:pointer;
+            position:relative; border-radius:10px; overflow:hidden;
+            border:1px solid rgba(59,130,246,0.14); cursor:pointer;
+            transition:transform .3s ease, box-shadow .3s ease;
+        }
+
+        .photo-item:hover {
+            transform:scale(1.03) translateY(-4px);
+            box-shadow:0 16px 48px rgba(0,0,0,0.6), 0 0 22px rgba(59,130,246,0.18);
         }
 
         .photo-item.photo-tall  { grid-row:span 2; }
         .photo-item.photo-wide  { grid-column:span 2; }
 
         .photo-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
-
-        .photo-item:hover img { transform:scale(1.06); }
-
-        .photo-placeholder {
-            width:100%; height:100%; display:flex; flex-direction:column;
-            align-items:center; justify-content:center;
-            background:linear-gradient(135deg,#1c2333 0%,#161b22 100%);
-            color:var(--text-secondary); font-size:.7rem;
-            letter-spacing:.04em; gap:10px; text-transform:uppercase;
-        }
-
-        .photo-placeholder svg { opacity:.18; }
+        .photo-item:hover img { transform:scale(1.07); }
 
         .photo-overlay {
             position:absolute; bottom:0; left:0; right:0;
-            padding:20px 12px 10px;
-            background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%);
-            font-size:.7rem; color:rgba(255,255,255,.88);
-            font-weight:500; letter-spacing:.04em; opacity:0; transition:opacity .25s ease;
+            padding:22px 12px 10px;
+            background:linear-gradient(to top,rgba(3,7,18,.85) 0%,transparent 100%);
+            font-size:.7rem; color:rgba(255,255,255,.9);
+            font-weight:500; opacity:0; transition:opacity .25s;
         }
 
         .photo-item:hover .photo-overlay { opacity:1; }
 
-        .photo-add-note { margin-top:14px; text-align:center; font-size:.73rem; color:var(--text-secondary); opacity:.55; }
+        /* ══════════════════════════════════════
+           CONTACT
+        ══════════════════════════════════════ */
+        .contact-wrap { max-width:640px; margin:0 auto; text-align:center; }
+        .contact-sub { color:var(--dim); font-size:.95rem; margin-top:-32px; margin-bottom:40px; }
 
-        /* ===== Contact ===== */
-        #contact { text-align:center; }
+        .contact-card { padding:40px; text-align:left; }
 
-        .contact-sub { color:var(--text-secondary); margin-bottom:32px; font-size:.97rem; margin-top:-20px; }
+        .form-group { margin-bottom:20px; }
 
-        .contact-form {
-            max-width:580px; margin:0 auto;
-            background-color:var(--bg-secondary); padding:32px 36px;
-            border-radius:10px; border:1px solid var(--border); text-align:left;
+        .form-group label {
+            display:block; margin-bottom:7px;
+            font-size:.8rem; font-weight:500; color:var(--dim);
         }
-
-        .form-group { margin-bottom:18px; }
-
-        .form-group label { display:block; margin-bottom:5px; font-weight:500; font-size:.85rem; color:var(--text-secondary); }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            width:100%; padding:9px 13px; border-radius:6px;
-            border:1px solid var(--border); background-color:var(--bg-card);
-            color:var(--text-primary); font-size:.88rem;
-            font-family:inherit; transition:border-color .2s ease;
+            width:100%; padding:11px 16px; border-radius:8px;
+            border:1px solid rgba(59,130,246,0.20);
+            background:rgba(37,99,235,0.05);
+            color:var(--text); font-family:inherit; font-size:.88rem;
+            transition:all .2s; outline:none; -webkit-appearance:none; appearance:none;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            outline:none; border-color:var(--accent-blue-lt);
-            box-shadow:0 0 0 3px rgba(59,130,246,.12);
+            border-color:var(--blue-lt);
+            background:rgba(37,99,235,0.09);
+            box-shadow:0 0 0 3px rgba(59,130,246,0.13);
         }
 
-        .form-group select option { background-color:var(--bg-card); }
+        .form-group select option { background:#08101f; }
+        .form-group textarea { height:120px; resize:vertical; }
 
-        .form-group textarea { height:115px; resize:vertical; }
-
-        .form-submit {
-            background:var(--accent-blue); color:white; border:none;
-            padding:10px 26px; border-radius:6px; cursor:pointer;
-            font-weight:500; font-size:.88rem; font-family:inherit;
-            transition:all .2s ease; letter-spacing:.01em;
+        /* ══════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════ */
+        .footer {
+            background:rgba(3,7,18,0.96);
+            border-top:1px solid rgba(59,130,246,0.12);
+            text-align:center; padding:32px 0;
         }
 
-        .form-submit:hover { background:#1d4ed8; transform:translateY(-1px); box-shadow:0 4px 12px rgba(37,99,235,.35); }
+        .footer p { color:var(--dim); font-size:.82rem; }
 
-        /* ===== Footer ===== */
-        footer {
-            background-color:var(--bg-secondary); color:var(--text-secondary);
-            text-align:center; padding:28px 0;
-            border-top:1px solid var(--border); font-size:.85rem;
+        .social-row { display:flex; justify-content:center; gap:18px; margin-top:16px; }
+
+        .social-link {
+            color:var(--dim); transition:color .2s, filter .2s;
+            display:flex; align-items:center;
         }
 
-        .social-icons { margin-top:14px; display:flex; justify-content:center; gap:16px; }
+        .social-link:hover { color:var(--blue-lt); filter:drop-shadow(0 0 8px var(--blue-lt)); }
 
-        .social-icon { color:var(--text-secondary); transition:color .2s ease; display:flex; align-items:center; }
+        /* ══════════════════════════════════════
+           SECTION ALTERNATING BG TINTS
+        ══════════════════════════════════════ */
+        .section.tinted { background:rgba(8,18,45,0.35); }
 
-        .social-icon:hover { color:var(--text-primary); }
+        /* Divider accent line under section headings */
+        .sec-divider {
+            width:40px; height:3px;
+            background:linear-gradient(90deg,var(--blue),var(--cyan));
+            border-radius:2px; margin:10px 0 0;
+        }
 
-        /* ===== Responsive ===== */
+        /* ══════════════════════════════════════
+           RESPONSIVE
+        ══════════════════════════════════════ */
         @media (max-width:960px) {
-            .sec-layout,
-            .about-layout,
-            .travel-layout {
-                grid-template-columns:1fr;
-                gap:20px;
-            }
-
-            .sec-nav,
-            .about-sidebar,
-            .travel-sidebar {
-                position:static;
-                display:flex;
-                flex-wrap:wrap;
-                gap:6px;
-                align-items:flex-start;
-            }
-
-            .sec-nav-label { width:100%; margin-bottom:4px; }
-
-            .sec-nav-item { flex:0 0 auto; padding:7px 12px; font-size:.8rem; }
-
-            .about-links { flex-direction:row; }
-
-            .travel-sidebar h3,
-            .travel-sidebar p { width:100%; }
-        }
-
-        @media (max-width:768px) {
-            header { padding:88px 0 52px; }
-            nav.site-nav .nav-links { display:none; }
-            .profile-container { flex-direction:column; text-align:center; gap:24px; }
-            .profile-details h1 { font-size:2rem; }
-            .profile-details h2 { margin:0 auto 12px; }
+            .hero-grid { grid-template-columns:1fr; gap:48px; text-align:center; }
+            .profile-side { order:-1; }
+            .hero-eyebrow { justify-content:center; }
             .hero-stats { justify-content:center; }
-            .hero-stat { text-align:center; }
-            .action-buttons { justify-content:center; }
+            .btn-row { justify-content:center; }
+            .about-grid { grid-template-columns:1fr; }
+            .tab-layout { grid-template-columns:1fr; }
+            .tab-nav { position:static; display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+            .tab-btn { flex:0 0 auto; padding:7px 12px; font-size:.8rem; width:auto; }
+            .travel-grid { grid-template-columns:1fr; }
         }
 
-        @media (max-width:560px) {
+        @media (max-width:640px) {
+            .nav-links { display:none; }
             .photo-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:140px; }
             .photo-item.photo-wide { grid-column:span 1; }
             .metrics-grid { grid-template-columns:repeat(2,1fr); }
+            .container { padding:0 20px; }
         }
-
-        /* ===== Three.js Background Canvas ===== */
-        #bg-canvas {
-            position:fixed; top:0; left:0;
-            width:100%; height:100%;
-            z-index:0; pointer-events:none;
-            display:block;
-        }
-
-        /* Ensure all page content sits above the canvas */
-        nav.site-nav    { z-index:100; }
-        header          { position:relative; z-index:1; background:rgba(13,17,23,0.15) !important; }
-        header::after   { display:none; }
-        section         { position:relative; z-index:1; }
-        footer          { position:relative; z-index:1; }
-
-        /* Semi-transparent section backgrounds so canvas bleeds through */
-        #about          { background-color:rgba(22,27,34,0.90) !important; }
-        #experience     { background-color:rgba(13,17,23,0.88) !important; }
-        #products       { background-color:rgba(13,17,23,0.88) !important; }
-        #projects       { background-color:rgba(13,17,23,0.88) !important; }
-        #case-study     { background-color:rgba(22,27,34,0.90) !important; }
-        #services       { background-color:rgba(13,17,23,0.88) !important; }
-        #travel         { background-color:rgba(13,17,23,0.88) !important; }
-        #contact        { background-color:rgba(13,17,23,0.88) !important; }
-        footer          { background-color:rgba(22,27,34,0.92) !important; }
     </style>
 </head>
 <body>
 
 <canvas id="bg-canvas"></canvas>
 
-<!-- Navigation -->
-<nav class="site-nav">
-    <div class="nav-container">
-        <span class="nav-brand">Asad Abbasi</span>
+<div id="app">
+
+<!-- ══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════ -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="#" class="nav-brand">Asad Abbasi</a>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
@@ -542,78 +692,103 @@
     </div>
 </nav>
 
-<!-- Hero -->
-<header>
-    <div class="container">
-        <div class="profile-container">
-            <div class="profile-image">
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero">
+    <div class="hero-grid">
+
+        <!-- Profile orb -->
+        <div class="profile-side">
+            <div class="orb-wrap">
+                <div class="orb-ring orb-ring-a"></div>
+                <div class="orb-ring orb-ring-b"></div>
+                <div class="orb-ring orb-ring-c"></div>
                 <img src="images/asadprofile.png" alt="Asad Abbasi">
+                <div class="orb-scan"></div>
             </div>
-            <div class="profile-details">
-                <div class="profile-eyebrow">Senior Product Leader</div>
-                <h1>Asad Abbasi</h1>
-                <h2>Building products that scale — from early-stage startups to global platforms</h2>
-                <p class="profile-domains">B2C &amp; D2C &nbsp;&middot;&nbsp; Gaming &nbsp;&middot;&nbsp; eCommerce &nbsp;&middot;&nbsp; Data &nbsp;&middot;&nbsp; AI</p>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-value">15+</div>
-                        <div class="hero-stat-label">Years in Product</div>
-                    </div>
-                    <div class="hero-stat-divider"></div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-value">9</div>
-                        <div class="hero-stat-label">Years in Leadership</div>
-                    </div>
-                    <div class="hero-stat-divider"></div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-value">10M+</div>
-                        <div class="hero-stat-label">Users Impacted</div>
-                    </div>
-                </div>
-                <div class="action-buttons">
-                    <a href="https://drive.google.com/uc?export=download&id=1BrS33ydpk_6v5Kzic5NZ7lfcEulmQNIQ" class="btn btn-primary" target="_blank">Download Resume</a>
-                    <a href="https://www.linkedin.com/in/asad-abbasi/" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
-                    <a href="https://www.instagram.com/asad.abbasi.1?igsh=dXVhMXk3ODRqaTZk" target="_blank" class="btn btn-outline">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram
-                    </a>
-                </div>
+            <div class="avail-badge">
+                <span class="avail-dot"></span>
+                Open to opportunities
             </div>
         </div>
+
+        <!-- Text -->
+        <div class="hero-text">
+            <div class="hero-eyebrow">Senior Product Leader</div>
+            <h1 class="hero-name">Asad<br>Abbasi</h1>
+            <p class="hero-tagline">Building products that scale — from early-stage startups to global platforms.</p>
+            <p class="hero-domains">B2C &amp; D2C &nbsp;·&nbsp; Gaming &nbsp;·&nbsp; eCommerce &nbsp;·&nbsp; Data &nbsp;·&nbsp; AI</p>
+
+            <div class="hero-stats">
+                <div class="stat-pill">
+                    <div class="stat-val">15+</div>
+                    <div class="stat-lbl">Years in Product</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="stat-val">9</div>
+                    <div class="stat-lbl">Years Leadership</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="stat-val">10M+</div>
+                    <div class="stat-lbl">Users Impacted</div>
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <a href="https://drive.google.com/uc?export=download&id=1BrS33ydpk_6v5Kzic5NZ7lfcEulmQNIQ" class="btn btn-primary" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Resume
+                </a>
+                <a href="https://www.linkedin.com/in/asad-abbasi/" target="_blank" class="btn btn-ghost">LinkedIn</a>
+                <a href="https://www.instagram.com/asad.abbasi.1?igsh=dXVhMXk3ODRqaTZk" target="_blank" class="btn btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    Instagram
+                </a>
+            </div>
+        </div>
+
     </div>
-</header>
+</section>
 
-<!-- About -->
-<section id="about">
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about" class="section tinted">
     <div class="container">
-        <h2 class="sec-heading">About Me</h2>
-        <div class="about-layout">
+        <div class="sec-head">
+            <div class="sec-label">Who I Am</div>
+            <h2 class="sec-title">About <span class="accent">Me</span></h2>
+            <div class="sec-divider"></div>
+        </div>
 
+        <div class="about-grid">
             <div class="about-sidebar">
-                <div class="about-stat">
-                    <div class="about-stat-value">15+</div>
-                    <div class="about-stat-label">Years in Product</div>
+                <div class="about-stat glass-sm">
+                    <div class="about-stat-val">15+</div>
+                    <div class="about-stat-lbl">Years in Product</div>
                 </div>
-                <div class="about-stat">
-                    <div class="about-stat-value">9</div>
-                    <div class="about-stat-label">Years in Leadership</div>
+                <div class="about-stat glass-sm">
+                    <div class="about-stat-val">9</div>
+                    <div class="about-stat-lbl">Years in Leadership</div>
                 </div>
-                <div class="about-stat">
-                    <div class="about-stat-value">10M+</div>
-                    <div class="about-stat-label">Users Impacted</div>
+                <div class="about-stat glass-sm">
+                    <div class="about-stat-val">10M+</div>
+                    <div class="about-stat-lbl">Users Impacted</div>
                 </div>
                 <div class="about-links">
-                    <a href="https://www.linkedin.com/in/asad-abbasi/" target="_blank" class="about-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <a href="https://www.linkedin.com/in/asad-abbasi/" target="_blank" class="about-link glass-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         LinkedIn
                     </a>
-                    <a href="https://drive.google.com/uc?export=download&id=1BrS33ydpk_6v5Kzic5NZ7lfcEulmQNIQ" target="_blank" class="about-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="https://drive.google.com/uc?export=download&id=1BrS33ydpk_6v5Kzic5NZ7lfcEulmQNIQ" target="_blank" class="about-link glass-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         Resume
                     </a>
                 </div>
             </div>
 
-            <div class="about-body">
+            <div class="about-body glass">
                 <p>15 years in product management, 9 in leadership — I bring strategic vision and hands-on execution to build products that scale. Known for data-driven roadmaps, high-performance teams, and measurable impact across Gaming, eCommerce, Fashion, Supply Chain, and AI.</p>
                 <div class="chips">
                     <span class="chip">Product Strategy</span>
@@ -630,401 +805,172 @@
     </div>
 </section>
 
-<!-- Experience -->
-<section id="experience">
+<!-- ══════════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════════ -->
+<section id="experience" class="section">
     <div class="container">
-        <h2 class="sec-heading">Experience</h2>
-        <div class="sec-layout">
-
-            <div class="sec-nav">
-                <div class="sec-nav-label">Companies</div>
-                <button class="sec-nav-item active" onclick="switchPanel(this,'exp-upstart','exp-g')">
-                    Upstart Commerce
-                    <span class="nav-item-sub">2024 – Present</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'exp-cityscape','exp-g')">
-                    Cityscape Technology
-                    <span class="nav-item-sub">2022 – 2024</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'exp-easyfresh','exp-g')">
-                    EasyFresh Technology
-                    <span class="nav-item-sub">2021 – 2022</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'exp-carry1st','exp-g')">
-                    Carry1st
-                    <span class="nav-item-sub">2021</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'exp-laam','exp-g')">
-                    Laam
-                    <span class="nav-item-sub">2020 – 2021</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'exp-daraz','exp-g')">
-                    Daraz (Alibaba)
-                    <span class="nav-item-sub">2015 – 2020</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'exp-chaos','exp-g')">
-                    Creative Chaos
-                    <span class="nav-item-sub">2014 – 2015</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'exp-gfk','exp-g')">
-                    GfK — NIQ
-                    <span class="nav-item-sub">2008 – 2014</span>
-                </button>
-            </div>
-
-            <div>
-                <div class="sec-panel active exp-g" id="exp-upstart">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/upstart.jpeg" alt="Upstart Commerce"></div>
-                        <div>
-                            <div class="exp-period">Aug 2024 – Present</div>
-                            <div class="exp-company">Upstart Commerce</div>
-                            <div class="exp-title">Senior Product Manager</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Leading product strategy for a headless and composable eCommerce platform built on independent microservices</li>
-                        <li>Driving cross-functional delivery across engineering, design, and operations to build scalable commerce infrastructure</li>
-                        <li>Defining roadmap, success metrics, and go-to-market approach for a modern B2B eCommerce solution</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel exp-g" id="exp-cityscape">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/cityscape.webp" alt="Cityscape"></div>
-                        <div>
-                            <div class="exp-period">Sep 2022 – Feb 2024</div>
-                            <div class="exp-company">Cityscape Technology Corporation</div>
-                            <div class="exp-title">Group Product Manager</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Led a 5-product portfolio spanning B2C, SaaS, and AI — including a North America real estate search engine and ML-powered heatmap</li>
-                        <li>Built and shipped an AI-powered real estate chatbot and virtual world experience on Unreal Engine</li>
-                        <li>Drove product strategy across multiple teams, establishing OKRs, discovery frameworks, and cross-functional delivery rituals</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel exp-g" id="exp-easyfresh">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/easyfresh.jpeg" alt="EasyFresh"></div>
-                        <div>
-                            <div class="exp-period">Dec 2021 – Sep 2022</div>
-                            <div class="exp-company">EasyFresh Technology</div>
-                            <div class="exp-title">Lead Product Manager</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Launched a full suite of farmer, retailer, and ops apps from zero to production in just 6 months</li>
-                        <li>Drove 100x app download growth and 300x order growth through targeted product-led growth strategies</li>
-                        <li>Reduced churn by 40% and grew repeat orders by 200% by eliminating supply chain friction through technology</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel exp-g" id="exp-carry1st">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/carry1st.jpeg" alt="Carry1st"></div>
-                        <div>
-                            <div class="exp-period">May 2021 – Dec 2021</div>
-                            <div class="exp-company">Carry1st</div>
-                            <div class="exp-title">Senior Product Manager</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Led Africa market expansion with a digital platform enabling in-app purchases, game vouchers, and prepaid utilities — 10M+ downloads</li>
-                        <li>Achieved 10x DAU increase and 3x session length improvement through targeted engagement and gamification features</li>
-                        <li>Delivered 300% conversion rate uplift and 40% churn reduction through iterative product experimentation</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel exp-g" id="exp-laam">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/laam.png" alt="Laam"></div>
-                        <div>
-                            <div class="exp-period">Jun 2020 – May 2021</div>
-                            <div class="exp-company">Laam</div>
-                            <div class="exp-title">Head of Product</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Joined as the inaugural Head of Product, building the product function from the ground up for a high-end fashion e-commerce platform</li>
-                        <li>Drove 3x conversion rate, 4x order value growth, and 500% DAU/MAU expansion within 11 months</li>
-                        <li>Established product discovery, roadmapping, and OKR processes that scaled with the company's rapid growth</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel exp-g" id="exp-daraz">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/daraz.png" alt="Daraz"></div>
-                        <div>
-                            <div class="exp-period">May 2015 – Jun 2020</div>
-                            <div class="exp-company">Daraz (Alibaba Group)</div>
-                            <div class="exp-title">Regional Head of Catalog Management</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Scaled product assortment from 40,000 to 10M+ SKUs across South Asia — a 250x growth in 5 years</li>
-                        <li>Grew active seller base from 2,500 to 30,000 and platform to 10M+ mobile users, contributing to Alibaba acquisition in 2018</li>
-                        <li>Drove 3x conversion rate and 2x search conversion improvements through ML-powered catalog and search enhancements</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel exp-g" id="exp-chaos">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/creative-chaos.png" alt="Creative Chaos"></div>
-                        <div>
-                            <div class="exp-period">Apr 2014 – May 2015</div>
-                            <div class="exp-company">Creative Chaos</div>
-                            <div class="exp-title">Product Manager</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Led end-to-end digital product development across multiple client engagements spanning web and mobile platforms</li>
-                        <li>Managed cross-functional teams across engineering, design, and QA to deliver on-time, on-scope releases</li>
-                        <li>Strengthened agile delivery practices and built client-facing product communication frameworks</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel exp-g" id="exp-gfk">
-                    <div class="exp-header">
-                        <div class="exp-logo"><img src="images/gfk.png" alt="GfK"></div>
-                        <div>
-                            <div class="exp-period">Oct 2008 – Apr 2014</div>
-                            <div class="exp-company">GfK — An NIQ Company</div>
-                            <div class="exp-title">Associate Product Manager</div>
-                        </div>
-                    </div>
-                    <ul class="item-list">
-                        <li>Built deep expertise in consumer data analytics and market research products within a global enterprise environment</li>
-                        <li>Managed product lifecycle across multiple research platforms, translating complex data needs into actionable product requirements</li>
-                        <li>Developed strong foundation in stakeholder management, product strategy, and cross-functional collaboration</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="sec-head">
+            <div class="sec-label">Career</div>
+            <h2 class="sec-title">Work <span class="accent">Experience</span></h2>
+            <div class="sec-divider"></div>
         </div>
-    </div>
-</section>
 
-<!-- Products -->
-<section id="products">
-    <div class="container">
-        <h2 class="sec-heading">Products</h2>
-        <div class="sec-layout">
-
-            <div class="sec-nav">
-                <div class="sec-nav-label">Category</div>
-                <button class="sec-nav-item active" onclick="switchPanel(this,'prod-b2c','prod-g')">B2C &amp; D2C</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'prod-saas','prod-g')">SaaS</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'prod-gaming','prod-g')">Gaming</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'prod-data','prod-g')">Data Products</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'prod-ai','prod-g')">AI-Based</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'prod-internal','prod-g')">Internal Tools</button>
+        <div class="tab-layout">
+            <div class="tab-nav glass-sm">
+                <div class="tab-nav-label">Companies</div>
+                <button class="tab-btn active" onclick="switchPanel(this,'exp-upstart','exp-g')">Upstart Commerce<span class="tab-sub">2024 – Present</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'exp-cityscape','exp-g')">Cityscape Technology<span class="tab-sub">2022 – 2024</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'exp-easyfresh','exp-g')">EasyFresh Technology<span class="tab-sub">2021 – 2022</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'exp-carry1st','exp-g')">Carry1st<span class="tab-sub">2021</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'exp-laam','exp-g')">Laam<span class="tab-sub">2020 – 2021</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'exp-daraz','exp-g')">Daraz (Alibaba)<span class="tab-sub">2015 – 2020</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'exp-chaos','exp-g')">Creative Chaos<span class="tab-sub">2014 – 2015</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'exp-gfk','exp-g')">GfK — NIQ<span class="tab-sub">2008 – 2014</span></button>
             </div>
 
             <div>
-                <div class="sec-panel active prod-g" id="prod-b2c">
-                    <div class="panel-title">B2C &amp; D2C Products</div>
-                    <ul class="item-list">
-                        <li>Developed and managed e-commerce mobile app (iOS &amp; Android) and web application for three separate startup ventures</li>
-                        <li>Spearheaded the creation of a North American real estate search engine, underpinned by comprehensive real estate data</li>
-                        <li>Innovated a virtual platform facilitating property showcases and various brokerage-related interactions</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel prod-g" id="prod-saas">
-                    <div class="panel-title">SaaS Products</div>
-                    <ul class="item-list">
-                        <li>Led the development of a real estate back-office tool streamlining daily operations for real estate agents</li>
-                        <li>Orchestrated a product enabling real estate agents to automate their marketing campaigns effectively</li>
-                        <li>Pioneered a growth center tailored for real estate marketplace sellers, offering in-depth e-commerce analytics</li>
-                        <li>Established an edtech platform empowering marketplace sellers with e-commerce expertise</li>
-                        <li>Architected a Seller Center for marketplace sellers to efficiently manage their online shops</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel prod-g" id="prod-gaming">
-                    <div class="panel-title">Gaming Products</div>
-                    <ul class="item-list">
-                        <li>Led market research, concept development, game design oversight and monetization strategy for two mobile games — Mine Rescue and Ludo Blitz — from inception to ship and performance monitoring</li>
-                        <li>Led gamification of an eCommerce platform to boost customer engagement &amp; loyalty</li>
-                        <li>Developed digital goods marketplace for gamers</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel prod-g" id="prod-data">
-                    <div class="panel-title">Data Products</div>
-                    <ul class="item-list">
-                        <li>Crafted a search algorithm enhancing e-commerce website functionality, driven by machine learning</li>
-                        <li>Developed a heatmap specific to North America, enriched with real estate metrics</li>
-                        <li>Designed dashboards for comprehensive tracking of multiple product and business performance metrics</li>
-                        <li>Implemented Data Studio, Mixpanel, Adjust, and Google Analytics for continuous performance monitoring</li>
-                        <li>Worked closely with data sciences to develop an algorithm to filter out prohibited listings</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel prod-g" id="prod-ai">
-                    <div class="panel-title">AI-Based Products</div>
-                    <ul class="item-list">
-                        <li>Engineered an AI generative chatbot tailored exclusively to the real estate market</li>
-                        <li>Used machine learning to implement personalisation at scale</li>
-                        <li>Developed AI-driven recommendation systems that increased conversion and repeat engagement</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel prod-g" id="prod-internal">
-                    <div class="panel-title">Internal Products</div>
-                    <ul class="item-list">
-                        <li>Order Management System (OMS)</li>
-                        <li>Warehouse Management System (WMS)</li>
-                        <li>Inventory Management System (IMS)</li>
-                        <li>Content Management System (CMS)</li>
-                        <li>Performance Management System (PMS)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Projects -->
-<section id="projects">
-    <div class="container">
-        <h2 class="sec-heading">Projects</h2>
-        <div class="sec-layout">
-
-            <div class="sec-nav">
-                <div class="sec-nav-label">Domain</div>
-                <button class="sec-nav-item active" onclick="switchPanel(this,'proj-ecommerce','proj-g')">eCommerce</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'proj-realestate','proj-g')">Real Estate</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'proj-supply','proj-g')">Supply Chain</button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'proj-gaming','proj-g')">Gaming</button>
-            </div>
-
-            <div>
-                <div class="sec-panel active proj-g" id="proj-ecommerce">
-                    <div class="panel-title">Headless eCommerce Platform</div>
-                    <p class="panel-desc">Leading the development of a headless and composable eCommerce backend built on fully independent microservices.</p>
-                    <ul class="item-list">
-                        <li>Define and execute product strategy for a headless and composable eCommerce platform</li>
-                        <li>Lead the development and integration of independent microservices</li>
-                        <li>Work with engineering, design, and operations teams to ensure seamless delivery</li>
-                        <li>Build a scalable architecture suitable for modern eCommerce needs</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel proj-g" id="proj-realestate">
-                    <div class="panel-title">Real Estate Virtual World &amp; Search Engine</div>
-                    <p class="panel-desc">Led the development of comprehensive real estate solutions including virtual world and search.</p>
-                    <ul class="item-list">
-                        <li>Created a virtual world on Unreal Engine for remote real estate work and property showcasing</li>
-                        <li>Developed a search engine backed with data for real estate of North America</li>
-                        <li>Launched an AI-powered chatbot for real estate insights</li>
-                        <li>Developed an efficient back-office tool for real estate agents</li>
-                        <li>Innovated social media marketing for real estate professionals</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel proj-g" id="proj-supply">
-                    <div class="panel-title">EasyFresh Supply Chain Platform</div>
-                    <p class="panel-desc">Led the development of a tech-driven supply chain platform connecting farmers directly with retailers.</p>
-                    <ul class="item-list">
-                        <li>Streamlined farmer-retailer connections through technology</li>
-                        <li>Launched a suite of apps in just six months</li>
-                        <li>Drove 100x app downloads and 300x order growth</li>
-                        <li>Achieved 200% increase in repeat orders and 40% churn reduction</li>
-                        <li>Eliminated intermediaries through innovative technology solutions</li>
-                    </ul>
-                </div>
-
-                <div class="sec-panel proj-g" id="proj-gaming">
-                    <div class="panel-title">Mobile Gaming &amp; Digital Goods Platform</div>
-                    <p class="panel-desc">Spearheaded gaming initiatives for Carry1st's expansion into Africa.</p>
-                    <ul class="item-list">
-                        <li>Launched two mobile games on Play Store (Mine Rescue &amp; Ludo Blitz)</li>
-                        <li>Developed MVP for a digital goods e-commerce store</li>
-                        <li>Created market research, concept development &amp; monetization strategies</li>
-                        <li>Established a versatile digital platform enabling in-app purchases</li>
-                        <li>Implemented gamification elements in e-commerce platforms</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Case Studies -->
-<section id="case-study">
-    <div class="container">
-        <h2 class="sec-heading">Case Studies</h2>
-        <div class="sec-layout">
-
-            <div class="sec-nav">
-                <div class="sec-nav-label">Company</div>
-                <button class="sec-nav-item active" onclick="switchPanel(this,'case-carry','case-g')">
-                    Carry1st
-                    <span class="nav-item-sub">Gaming · Africa</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'case-laam','case-g')">
-                    Laam
-                    <span class="nav-item-sub">Fashion eCommerce</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'case-daraz','case-g')">
-                    Daraz
-                    <span class="nav-item-sub">Marketplace · South Asia</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'case-easyfresh','case-g')">
-                    EasyFresh
-                    <span class="nav-item-sub">Supply Chain · AgriTech</span>
-                </button>
-            </div>
-
-            <div>
-                <div class="sec-panel active case-g" id="case-carry">
-                    <div class="panel-title">Transforming Carry1st's Digital Platform</div>
-                    <p class="panel-desc">As Product Leader at Carry1st, I spearheaded the expansion into Africa with a versatile digital platform enabling in-app purchases, prepaid electricity, and game vouchers.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><div class="metric-value">10M+</div><div class="metric-label">Game Downloads</div></div>
-                        <div class="metric"><div class="metric-value">10x</div><div class="metric-label">DAU Increase</div></div>
-                        <div class="metric"><div class="metric-value">3x</div><div class="metric-label">Session Length</div></div>
-                        <div class="metric"><div class="metric-value">300%</div><div class="metric-label">Conversion Rate</div></div>
-                        <div class="metric"><div class="metric-value">40%</div><div class="metric-label">Churn Reduction</div></div>
-                        <div class="metric"><div class="metric-value">2x</div><div class="metric-label">ARPU Increase</div></div>
+                <div class="tab-panel active exp-g glass tilt" id="exp-upstart">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/upstart.jpeg" alt="Upstart Commerce"></div>
+                            <div>
+                                <div class="exp-period">Aug 2024 – Present</div>
+                                <div class="exp-company">Upstart Commerce</div>
+                                <div class="exp-role">Senior Product Manager</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Leading product strategy for a headless and composable eCommerce platform built on independent microservices</li>
+                            <li>Driving cross-functional delivery across engineering, design, and operations to build scalable commerce infrastructure</li>
+                            <li>Defining roadmap, success metrics, and go-to-market approach for a modern B2B eCommerce solution</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="sec-panel case-g" id="case-laam">
-                    <div class="panel-title">Laam High-End Fashion E-Store Transformation</div>
-                    <p class="panel-desc">As the inaugural Head of Product at Laam, I translated visionary goals into a scalable, successful high-end fashion e-commerce platform.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><div class="metric-value">3x</div><div class="metric-label">Conversion Rate</div></div>
-                        <div class="metric"><div class="metric-value">20%</div><div class="metric-label">Repeat Orders</div></div>
-                        <div class="metric"><div class="metric-value">10%</div><div class="metric-label">Churn Reduction</div></div>
-                        <div class="metric"><div class="metric-value">4x</div><div class="metric-label">Order Value Growth</div></div>
-                        <div class="metric"><div class="metric-value">500%</div><div class="metric-label">DAU/MAU Expansion</div></div>
+                <div class="tab-panel exp-g glass tilt" id="exp-cityscape">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/cityscape.webp" alt="Cityscape"></div>
+                            <div>
+                                <div class="exp-period">Sep 2022 – Feb 2024</div>
+                                <div class="exp-company">Cityscape Technology Corporation</div>
+                                <div class="exp-role">Group Product Manager</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Led a 5-product portfolio spanning B2C, SaaS, and AI — including a North America real estate search engine and ML-powered heatmap</li>
+                            <li>Built and shipped an AI-powered real estate chatbot and virtual world experience on Unreal Engine</li>
+                            <li>Drove product strategy across multiple teams, establishing OKRs, discovery frameworks, and cross-functional delivery rituals</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="sec-panel case-g" id="case-daraz">
-                    <div class="panel-title">Scaling Daraz from Startup to Alibaba Acquisition</div>
-                    <p class="panel-desc">At Daraz, I drove hyper-growth from early-stage startup to successful acquisition by Alibaba Group in 2018.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><div class="metric-value">10M+</div><div class="metric-label">Active Mobile Users</div></div>
-                        <div class="metric"><div class="metric-value">3x</div><div class="metric-label">Conversion Rates</div></div>
-                        <div class="metric"><div class="metric-value">2x</div><div class="metric-label">Search Conversion</div></div>
-                        <div class="metric"><div class="metric-value">40K→10M</div><div class="metric-label">Product Assortment</div></div>
-                        <div class="metric"><div class="metric-value">2.5K→30K</div><div class="metric-label">Seller Growth</div></div>
+                <div class="tab-panel exp-g glass tilt" id="exp-easyfresh">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/easyfresh.jpeg" alt="EasyFresh"></div>
+                            <div>
+                                <div class="exp-period">Dec 2021 – Sep 2022</div>
+                                <div class="exp-company">EasyFresh Technology</div>
+                                <div class="exp-role">Lead Product Manager</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Launched a full suite of farmer, retailer, and ops apps from zero to production in just 6 months</li>
+                            <li>Drove 100x app download growth and 300x order growth through targeted product-led growth strategies</li>
+                            <li>Reduced churn by 40% and grew repeat orders by 200% by eliminating supply chain friction through technology</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="sec-panel case-g" id="case-easyfresh">
-                    <div class="panel-title">EasyFresh Technology Supply Chain Transformation</div>
-                    <p class="panel-desc">Led EasyFresh Technologies, streamlining farmer-retailer connections through innovative technology solutions.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><div class="metric-value">100x</div><div class="metric-label">App Downloads</div></div>
-                        <div class="metric"><div class="metric-value">300x</div><div class="metric-label">Order Growth</div></div>
-                        <div class="metric"><div class="metric-value">200%</div><div class="metric-label">Repeat Orders</div></div>
-                        <div class="metric"><div class="metric-value">40%</div><div class="metric-label">Churn Reduction</div></div>
-                        <div class="metric"><div class="metric-value">6 mo</div><div class="metric-label">Time to Launch</div></div>
+                <div class="tab-panel exp-g glass tilt" id="exp-carry1st">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/carry1st.jpeg" alt="Carry1st"></div>
+                            <div>
+                                <div class="exp-period">May 2021 – Dec 2021</div>
+                                <div class="exp-company">Carry1st</div>
+                                <div class="exp-role">Senior Product Manager</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Led Africa market expansion with a digital platform enabling in-app purchases, game vouchers, and prepaid utilities — 10M+ downloads</li>
+                            <li>Achieved 10x DAU increase and 3x session length improvement through targeted engagement and gamification features</li>
+                            <li>Delivered 300% conversion rate uplift and 40% churn reduction through iterative product experimentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel exp-g glass tilt" id="exp-laam">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/laam.png" alt="Laam"></div>
+                            <div>
+                                <div class="exp-period">Jun 2020 – May 2021</div>
+                                <div class="exp-company">Laam</div>
+                                <div class="exp-role">Head of Product</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Joined as the inaugural Head of Product, building the product function from the ground up for a high-end fashion e-commerce platform</li>
+                            <li>Drove 3x conversion rate, 4x order value growth, and 500% DAU/MAU expansion within 11 months</li>
+                            <li>Established product discovery, roadmapping, and OKR processes that scaled with the company's rapid growth</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel exp-g glass tilt" id="exp-daraz">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/daraz.png" alt="Daraz"></div>
+                            <div>
+                                <div class="exp-period">May 2015 – Jun 2020</div>
+                                <div class="exp-company">Daraz (Alibaba Group)</div>
+                                <div class="exp-role">Regional Head of Catalog Management</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Scaled product assortment from 40,000 to 10M+ SKUs across South Asia — a 250x growth in 5 years</li>
+                            <li>Grew active seller base from 2,500 to 30,000 and platform to 10M+ mobile users, contributing to Alibaba acquisition in 2018</li>
+                            <li>Drove 3x conversion rate and 2x search conversion improvements through ML-powered catalog and search enhancements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel exp-g glass tilt" id="exp-chaos">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/creative-chaos.png" alt="Creative Chaos"></div>
+                            <div>
+                                <div class="exp-period">Apr 2014 – May 2015</div>
+                                <div class="exp-company">Creative Chaos</div>
+                                <div class="exp-role">Product Manager</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Led end-to-end digital product development across multiple client engagements spanning web and mobile platforms</li>
+                            <li>Managed cross-functional teams across engineering, design, and QA to deliver on-time, on-scope releases</li>
+                            <li>Strengthened agile delivery practices and built client-facing product communication frameworks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel exp-g glass tilt" id="exp-gfk">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="exp-logo"><img src="images/gfk.png" alt="GfK"></div>
+                            <div>
+                                <div class="exp-period">Oct 2008 – Apr 2014</div>
+                                <div class="exp-company">GfK — An NIQ Company</div>
+                                <div class="exp-role">Associate Product Manager</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Built deep expertise in consumer data analytics and market research products within a global enterprise environment</li>
+                            <li>Managed product lifecycle across multiple research platforms, translating complex data needs into actionable product requirements</li>
+                            <li>Developed strong foundation in stakeholder management, product strategy, and cross-functional collaboration</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1032,358 +978,740 @@
     </div>
 </section>
 
-<!-- Services -->
-<section id="services">
+<!-- ══════════════════════════════════════
+     PRODUCTS
+══════════════════════════════════════ -->
+<section id="products" class="section tinted">
     <div class="container">
-        <h2 class="sec-heading">Services</h2>
-        <div class="sec-layout">
+        <div class="sec-head">
+            <div class="sec-label">What I've Built</div>
+            <h2 class="sec-title">Product <span class="accent">Portfolio</span></h2>
+            <div class="sec-divider"></div>
+        </div>
 
-            <div class="sec-nav">
-                <div class="sec-nav-label">Offering</div>
-                <button class="sec-nav-item active" onclick="switchPanel(this,'svc-pm','svc-g')">
-                    Product Management
-                    <span class="nav-item-sub">Strategy &amp; execution</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'svc-consulting','svc-g')">
-                    Consultancy
-                    <span class="nav-item-sub">Advisory &amp; optimisation</span>
-                </button>
-                <button class="sec-nav-item" onclick="switchPanel(this,'svc-ai','svc-g')">
-                    AI Agents &amp; Solutions
-                    <span class="nav-item-sub">Intelligent automation</span>
-                </button>
+        <div class="tab-layout">
+            <div class="tab-nav glass-sm">
+                <div class="tab-nav-label">Category</div>
+                <button class="tab-btn active" onclick="switchPanel(this,'prod-b2c','prod-g')">B2C &amp; D2C</button>
+                <button class="tab-btn" onclick="switchPanel(this,'prod-saas','prod-g')">SaaS</button>
+                <button class="tab-btn" onclick="switchPanel(this,'prod-gaming','prod-g')">Gaming</button>
+                <button class="tab-btn" onclick="switchPanel(this,'prod-data','prod-g')">Data Products</button>
+                <button class="tab-btn" onclick="switchPanel(this,'prod-ai','prod-g')">AI-Based</button>
+                <button class="tab-btn" onclick="switchPanel(this,'prod-internal','prod-g')">Internal Tools</button>
             </div>
 
             <div>
-                <div class="sec-panel active svc-g" id="svc-pm">
-                    <span class="svc-tag">Product Management</span>
-                    <div class="panel-title">Full-cycle product management from strategy to ship</div>
-                    <p class="panel-desc">Comprehensive product management services including strategy development, roadmap planning, and execution oversight. I specialise in guiding products from conception to market success through data-driven approaches and user-centric methodologies.</p>
-                    <ul class="item-list">
-                        <li>Product Strategy &amp; Roadmap Development</li>
-                        <li>Product Discovery &amp; Market Analysis</li>
-                        <li>Agile Implementation &amp; Team Leadership</li>
-                        <li>Product Lifecycle Management</li>
-                    </ul>
+                <div class="tab-panel active prod-g glass tilt" id="prod-b2c">
+                    <div class="panel-card">
+                        <div class="panel-title">B2C &amp; D2C Products</div>
+                        <ul class="bullet-list">
+                            <li>Developed and managed e-commerce mobile app (iOS &amp; Android) and web application for three separate startup ventures</li>
+                            <li>Spearheaded the creation of a North American real estate search engine, underpinned by comprehensive real estate data</li>
+                            <li>Innovated a virtual platform facilitating property showcases and various brokerage-related interactions</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="sec-panel svc-g" id="svc-consulting">
-                    <span class="svc-tag">Consultancy</span>
-                    <div class="panel-title">Strategic guidance to innovate and optimise</div>
-                    <p class="panel-desc">Strategic product consultancy for businesses looking to innovate or optimise their product offerings. I work with teams to enhance processes, implement best practices, and achieve product excellence.</p>
-                    <ul class="item-list">
-                        <li>Strategic Roadmap Development</li>
-                        <li>Process Optimisation</li>
-                        <li>Market &amp; User Research</li>
-                        <li>Performance Metrics &amp; KPIs</li>
-                    </ul>
+                <div class="tab-panel prod-g glass tilt" id="prod-saas">
+                    <div class="panel-card">
+                        <div class="panel-title">SaaS Products</div>
+                        <ul class="bullet-list">
+                            <li>Led the development of a real estate back-office tool streamlining daily operations for real estate agents</li>
+                            <li>Orchestrated a product enabling real estate agents to automate their marketing campaigns effectively</li>
+                            <li>Pioneered a growth center tailored for real estate marketplace sellers, offering in-depth e-commerce analytics</li>
+                            <li>Established an edtech platform empowering marketplace sellers with e-commerce expertise</li>
+                            <li>Architected a Seller Center for marketplace sellers to efficiently manage their online shops</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="sec-panel svc-g" id="svc-ai">
-                    <span class="svc-tag">AI &amp; Automation</span>
-                    <div class="panel-title">Intelligent solutions that drive efficiency</div>
-                    <p class="panel-desc">Leveraging my experience with AI products, I help businesses implement intelligent solutions that drive efficiency and create competitive advantages in the market.</p>
-                    <ul class="item-list">
-                        <li>AI Chatbot Development</li>
-                        <li>Machine Learning Implementation</li>
-                        <li>AI-Driven Personalisation</li>
-                        <li>Data Product Strategy</li>
-                    </ul>
+                <div class="tab-panel prod-g glass tilt" id="prod-gaming">
+                    <div class="panel-card">
+                        <div class="panel-title">Gaming Products</div>
+                        <ul class="bullet-list">
+                            <li>Led market research, concept development, game design oversight and monetization strategy for two mobile games — Mine Rescue and Ludo Blitz — from inception to ship and performance monitoring</li>
+                            <li>Led gamification of an eCommerce platform to boost customer engagement &amp; loyalty</li>
+                            <li>Developed digital goods marketplace for gamers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel prod-g glass tilt" id="prod-data">
+                    <div class="panel-card">
+                        <div class="panel-title">Data Products</div>
+                        <ul class="bullet-list">
+                            <li>Crafted a search algorithm enhancing e-commerce website functionality, driven by machine learning</li>
+                            <li>Developed a heatmap specific to North America, enriched with real estate metrics</li>
+                            <li>Designed dashboards for comprehensive tracking of multiple product and business performance metrics</li>
+                            <li>Implemented Data Studio, Mixpanel, Adjust, and Google Analytics for continuous performance monitoring</li>
+                            <li>Worked closely with data sciences to develop an algorithm to filter out prohibited listings</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel prod-g glass tilt" id="prod-ai">
+                    <div class="panel-card">
+                        <div class="panel-title">AI-Based Products</div>
+                        <ul class="bullet-list">
+                            <li>Engineered an AI generative chatbot tailored exclusively to the real estate market</li>
+                            <li>Used machine learning to implement personalisation at scale</li>
+                            <li>Developed AI-driven recommendation systems that increased conversion and repeat engagement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel prod-g glass tilt" id="prod-internal">
+                    <div class="panel-card">
+                        <div class="panel-title">Internal Products</div>
+                        <ul class="bullet-list">
+                            <li>Order Management System (OMS)</li>
+                            <li>Warehouse Management System (WMS)</li>
+                            <li>Inventory Management System (IMS)</li>
+                            <li>Content Management System (CMS)</li>
+                            <li>Performance Management System (PMS)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Travel & Photography -->
-<section id="travel">
+<!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+<section id="projects" class="section">
     <div class="container">
-        <h2 class="sec-heading">Travel &amp; Photography</h2>
-        <div class="travel-layout">
+        <div class="sec-head">
+            <div class="sec-label">Featured Work</div>
+            <h2 class="sec-title">Key <span class="accent">Projects</span></h2>
+            <div class="sec-divider"></div>
+        </div>
 
-            <div class="travel-sidebar">
-                <h3>Beyond the product roadmap</h3>
-                <p>Travel keeps me curious and grounded. Exploring new cultures and landscapes directly sharpens how I think about users, markets, and the products I build. Photography is how I slow down and pay attention.</p>
+        <div class="tab-layout">
+            <div class="tab-nav glass-sm">
+                <div class="tab-nav-label">Domain</div>
+                <button class="tab-btn active" onclick="switchPanel(this,'proj-ecommerce','proj-g')">eCommerce</button>
+                <button class="tab-btn" onclick="switchPanel(this,'proj-realestate','proj-g')">Real Estate</button>
+                <button class="tab-btn" onclick="switchPanel(this,'proj-supply','proj-g')">Supply Chain</button>
+                <button class="tab-btn" onclick="switchPanel(this,'proj-gaming','proj-g')">Gaming</button>
+            </div>
 
+            <div>
+                <div class="tab-panel active proj-g glass tilt" id="proj-ecommerce">
+                    <div class="panel-card">
+                        <div class="panel-title">Headless eCommerce Platform</div>
+                        <p class="panel-desc">Leading the development of a headless and composable eCommerce backend built on fully independent microservices.</p>
+                        <ul class="bullet-list">
+                            <li>Define and execute product strategy for a headless and composable eCommerce platform</li>
+                            <li>Lead the development and integration of independent microservices</li>
+                            <li>Work with engineering, design, and operations teams to ensure seamless delivery</li>
+                            <li>Build a scalable architecture suitable for modern eCommerce needs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel proj-g glass tilt" id="proj-realestate">
+                    <div class="panel-card">
+                        <div class="panel-title">Real Estate Virtual World &amp; Search Engine</div>
+                        <p class="panel-desc">Led the development of comprehensive real estate solutions including virtual world and search.</p>
+                        <ul class="bullet-list">
+                            <li>Created a virtual world on Unreal Engine for remote real estate work and property showcasing</li>
+                            <li>Developed a search engine backed with data for real estate of North America</li>
+                            <li>Launched an AI-powered chatbot for real estate insights</li>
+                            <li>Developed an efficient back-office tool for real estate agents</li>
+                            <li>Innovated social media marketing for real estate professionals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel proj-g glass tilt" id="proj-supply">
+                    <div class="panel-card">
+                        <div class="panel-title">EasyFresh Supply Chain Platform</div>
+                        <p class="panel-desc">Led the development of a tech-driven supply chain platform connecting farmers directly with retailers.</p>
+                        <ul class="bullet-list">
+                            <li>Streamlined farmer-retailer connections through technology</li>
+                            <li>Launched a suite of apps in just six months</li>
+                            <li>Drove 100x app downloads and 300x order growth</li>
+                            <li>Achieved 200% increase in repeat orders and 40% churn reduction</li>
+                            <li>Eliminated intermediaries through innovative technology solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel proj-g glass tilt" id="proj-gaming">
+                    <div class="panel-card">
+                        <div class="panel-title">Mobile Gaming &amp; Digital Goods Platform</div>
+                        <p class="panel-desc">Spearheaded gaming initiatives for Carry1st's expansion into Africa.</p>
+                        <ul class="bullet-list">
+                            <li>Launched two mobile games on Play Store (Mine Rescue &amp; Ludo Blitz)</li>
+                            <li>Developed MVP for a digital goods e-commerce store</li>
+                            <li>Created market research, concept development &amp; monetization strategies</li>
+                            <li>Established a versatile digital platform enabling in-app purchases</li>
+                            <li>Implemented gamification elements in e-commerce platforms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CASE STUDIES
+══════════════════════════════════════ -->
+<section id="case-study" class="section tinted">
+    <div class="container">
+        <div class="sec-head">
+            <div class="sec-label">Impact</div>
+            <h2 class="sec-title">Case <span class="accent">Studies</span></h2>
+            <div class="sec-divider"></div>
+        </div>
+
+        <div class="tab-layout">
+            <div class="tab-nav glass-sm">
+                <div class="tab-nav-label">Company</div>
+                <button class="tab-btn active" onclick="switchPanel(this,'case-carry','case-g')">Carry1st<span class="tab-sub">Gaming · Africa</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'case-laam','case-g')">Laam<span class="tab-sub">Fashion eCommerce</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'case-daraz','case-g')">Daraz<span class="tab-sub">Marketplace · South Asia</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'case-easyfresh','case-g')">EasyFresh<span class="tab-sub">Supply Chain · AgriTech</span></button>
+            </div>
+
+            <div>
+                <div class="tab-panel active case-g glass tilt" id="case-carry">
+                    <div class="panel-card">
+                        <div class="panel-title">Transforming Carry1st's Digital Platform</div>
+                        <p class="panel-desc">As Product Leader at Carry1st, I spearheaded the expansion into Africa with a versatile digital platform enabling in-app purchases, prepaid electricity, and game vouchers.</p>
+                        <div class="metrics-grid">
+                            <div class="metric glass-sm"><div class="metric-value">10M+</div><div class="metric-label">Game Downloads</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">10x</div><div class="metric-label">DAU Increase</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">3x</div><div class="metric-label">Session Length</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">300%</div><div class="metric-label">Conversion Rate</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">40%</div><div class="metric-label">Churn Reduction</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">2x</div><div class="metric-label">ARPU Increase</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel case-g glass tilt" id="case-laam">
+                    <div class="panel-card">
+                        <div class="panel-title">Laam High-End Fashion E-Store Transformation</div>
+                        <p class="panel-desc">As the inaugural Head of Product at Laam, I translated visionary goals into a scalable, successful high-end fashion e-commerce platform.</p>
+                        <div class="metrics-grid">
+                            <div class="metric glass-sm"><div class="metric-value">3x</div><div class="metric-label">Conversion Rate</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">20%</div><div class="metric-label">Repeat Orders</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">10%</div><div class="metric-label">Churn Reduction</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">4x</div><div class="metric-label">Order Value Growth</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">500%</div><div class="metric-label">DAU/MAU Expansion</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel case-g glass tilt" id="case-daraz">
+                    <div class="panel-card">
+                        <div class="panel-title">Scaling Daraz from Startup to Alibaba Acquisition</div>
+                        <p class="panel-desc">At Daraz, I drove hyper-growth from early-stage startup to successful acquisition by Alibaba Group in 2018.</p>
+                        <div class="metrics-grid">
+                            <div class="metric glass-sm"><div class="metric-value">10M+</div><div class="metric-label">Active Mobile Users</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">3x</div><div class="metric-label">Conversion Rates</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">2x</div><div class="metric-label">Search Conversion</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">40K→10M</div><div class="metric-label">Product Assortment</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">2.5K→30K</div><div class="metric-label">Seller Growth</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel case-g glass tilt" id="case-easyfresh">
+                    <div class="panel-card">
+                        <div class="panel-title">EasyFresh Technology Supply Chain Transformation</div>
+                        <p class="panel-desc">Led EasyFresh Technologies, streamlining farmer-retailer connections through innovative technology solutions.</p>
+                        <div class="metrics-grid">
+                            <div class="metric glass-sm"><div class="metric-value">100x</div><div class="metric-label">App Downloads</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">300x</div><div class="metric-label">Order Growth</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">200%</div><div class="metric-label">Repeat Orders</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">40%</div><div class="metric-label">Churn Reduction</div></div>
+                            <div class="metric glass-sm"><div class="metric-value">6 mo</div><div class="metric-label">Time to Launch</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES
+══════════════════════════════════════ -->
+<section id="services" class="section">
+    <div class="container">
+        <div class="sec-head">
+            <div class="sec-label">How I Can Help</div>
+            <h2 class="sec-title">My <span class="accent">Services</span></h2>
+            <div class="sec-divider"></div>
+        </div>
+
+        <div class="tab-layout">
+            <div class="tab-nav glass-sm">
+                <div class="tab-nav-label">Offering</div>
+                <button class="tab-btn active" onclick="switchPanel(this,'svc-pm','svc-g')">Product Management<span class="tab-sub">Strategy &amp; execution</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'svc-consulting','svc-g')">Consultancy<span class="tab-sub">Advisory &amp; optimisation</span></button>
+                <button class="tab-btn" onclick="switchPanel(this,'svc-ai','svc-g')">AI Agents &amp; Solutions<span class="tab-sub">Intelligent automation</span></button>
+            </div>
+
+            <div>
+                <div class="tab-panel active svc-g glass tilt" id="svc-pm">
+                    <div class="panel-card">
+                        <span class="svc-tag">Product Management</span>
+                        <div class="panel-title">Full-cycle product management from strategy to ship</div>
+                        <p class="panel-desc">Comprehensive product management services including strategy development, roadmap planning, and execution oversight. I specialise in guiding products from conception to market success through data-driven approaches and user-centric methodologies.</p>
+                        <ul class="bullet-list">
+                            <li>Product Strategy &amp; Roadmap Development</li>
+                            <li>Product Discovery &amp; Market Analysis</li>
+                            <li>Agile Implementation &amp; Team Leadership</li>
+                            <li>Product Lifecycle Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel svc-g glass tilt" id="svc-consulting">
+                    <div class="panel-card">
+                        <span class="svc-tag">Consultancy</span>
+                        <div class="panel-title">Strategic guidance to innovate and optimise</div>
+                        <p class="panel-desc">Strategic product consultancy for businesses looking to innovate or optimise their product offerings. I work with teams to enhance processes, implement best practices, and achieve product excellence.</p>
+                        <ul class="bullet-list">
+                            <li>Strategic Roadmap Development</li>
+                            <li>Process Optimisation</li>
+                            <li>Market &amp; User Research</li>
+                            <li>Performance Metrics &amp; KPIs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel svc-g glass tilt" id="svc-ai">
+                    <div class="panel-card">
+                        <span class="svc-tag">AI &amp; Automation</span>
+                        <div class="panel-title">Intelligent solutions that drive efficiency</div>
+                        <p class="panel-desc">Leveraging my experience with AI products, I help businesses implement intelligent solutions that drive efficiency and create competitive advantages in the market.</p>
+                        <ul class="bullet-list">
+                            <li>AI Chatbot Development</li>
+                            <li>Machine Learning Implementation</li>
+                            <li>AI-Driven Personalisation</li>
+                            <li>Data Product Strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TRAVEL
+══════════════════════════════════════ -->
+<section id="travel" class="section tinted">
+    <div class="container">
+        <div class="sec-head">
+            <div class="sec-label">Life Beyond Work</div>
+            <h2 class="sec-title">Travel &amp; <span class="accent">Photography</span></h2>
+            <div class="sec-divider"></div>
+        </div>
+
+        <div class="travel-grid">
+            <div class="travel-sidebar glass-sm" style="padding:24px;">
+                <h3>Explorer at Heart</h3>
+                <p>Product thinking thrives on curiosity. Travel keeps that curiosity alive — every new culture, city, and landscape is a masterclass in diverse human needs.</p>
                 <div class="travel-tags">
-                    <span class="travel-tag">Landscape</span>
-                    <span class="travel-tag">Street</span>
-                    <span class="travel-tag">Architecture</span>
-                    <span class="travel-tag">Golden Hour</span>
-                    <span class="travel-tag">Candid</span>
+                    <span class="travel-tag">Photography</span>
+                    <span class="travel-tag">Adventure</span>
+                    <span class="travel-tag">Culture</span>
+                    <span class="travel-tag">Cuisine</span>
                 </div>
-
                 <ul class="dest-list">
-                    <li><span class="dest-dot"></span>Pakistan</li>
-                    <li><span class="dest-dot"></span>UAE &amp; Gulf</li>
-                    <li><span class="dest-dot"></span>Baku</li>
-                    <li><span class="dest-dot"></span>Singapore</li>
-                    <li><span class="dest-dot"></span>Srilanka</li>
+                    <li><span class="dest-dot"></span>Turkey</li>
+                    <li><span class="dest-dot"></span>UAE</li>
                     <li><span class="dest-dot"></span>Thailand</li>
-                    <li><span class="dest-dot"></span>Malaysia</li>
+                    <li><span class="dest-dot"></span>UK</li>
+                    <li><span class="dest-dot"></span>Saudi Arabia</li>
                 </ul>
             </div>
 
             <div>
                 <div class="photo-grid">
-
                     <div class="photo-item photo-tall">
                         <img src="images/travel/20251020_204904 (1).jpg" alt="Travel photo">
-                        <div class="photo-overlay">Your caption here</div>
+                        <div class="photo-overlay">Adventure awaits</div>
                     </div>
-
                     <div class="photo-item">
                         <img src="images/travel/20230728_143045.jpg" alt="Travel photo">
-                        <div class="photo-overlay">Your caption here</div>
+                        <div class="photo-overlay">Exploring the world</div>
                     </div>
-
                     <div class="photo-item">
                         <img src="images/travel/20260210_130837.jpg" alt="Travel photo">
-                        <div class="photo-overlay">Your caption here</div>
+                        <div class="photo-overlay">New horizons</div>
                     </div>
-
                     <div class="photo-item photo-wide">
                         <img src="images/travel/20250815_090814.jpg" alt="Travel photo">
-                        <div class="photo-overlay">Your caption here</div>
+                        <div class="photo-overlay">The journey continues</div>
                     </div>
-
                     <div class="photo-item">
                         <img src="images/travel/IMG_20190413_160631.jpg" alt="Travel photo">
-                        <div class="photo-overlay">Your caption here</div>
+                        <div class="photo-overlay">Hidden gems</div>
                     </div>
-
                     <div class="photo-item">
                         <img src="images/travel/IMG-20190901-WA0003.jpg" alt="Travel photo">
-                        <div class="photo-overlay">Your caption here</div>
+                        <div class="photo-overlay">Wanderlust</div>
                     </div>
-
                     <div class="photo-item">
                         <img src="images/travel/IMG_20190904_170552.jpg" alt="Travel photo">
-                        <div class="photo-overlay">Your caption here</div>
+                        <div class="photo-overlay">Captured moments</div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact" class="section">
     <div class="container">
-        <h2 class="sec-heading">Contact Me</h2>
-        <p class="contact-sub">Let's connect and discuss how I can help drive your product success</p>
+        <div class="sec-head" style="text-align:center;">
+            <div class="sec-label" style="justify-content:center;">Get In Touch</div>
+            <h2 class="sec-title">Let's <span class="accent">Connect</span></h2>
+            <div class="sec-divider" style="margin:10px auto 0;"></div>
+        </div>
 
-        <div class="contact-form">
-            <form action="https://formsubmit.co/el/xotuwe" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://asadabbasi.github.io/portfolio/">
-                <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll get back to you soon.">
-                <input type="hidden" name="_honey" style="display:none">
+        <div class="contact-wrap">
+            <p class="contact-sub">Let's connect and discuss how I can help drive your product success.</p>
+            <div class="contact-card glass">
+                <form action="https://formsubmit.co/el/xotuwe" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://asadabbasi.github.io/portfolio/">
+                    <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll get back to you soon.">
+                    <input type="hidden" name="_honey" style="display:none">
 
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="service">Service</label>
-                    <select id="service" name="service">
-                        <option value="">Select a service...</option>
-                        <option value="product-management">Product Management</option>
-                        <option value="consultancy">Consultancy</option>
-                        <option value="ai-solutions">AI Agents &amp; Solutions</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                <button type="submit" class="form-submit">Send Message</button>
-            </form>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option value="product-management">Product Management</option>
+                            <option value="consultancy">Consultancy</option>
+                            <option value="ai-solutions">AI Agents &amp; Solutions</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
+                </form>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
-<footer>
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="footer">
     <div class="container">
         <p>&copy; 2026 Asad Abbasi. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/asad-abbasi/" class="social-icon" target="_blank" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                </svg>
+        <div class="social-row">
+            <a href="https://www.linkedin.com/in/asad-abbasi/" class="social-link" target="_blank" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://www.instagram.com/asad.abbasi.1?igsh=dXVhMXk3ODRqaTZk" class="social-icon" target="_blank" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
+            <a href="https://www.instagram.com/asad.abbasi.1?igsh=dXVhMXk3ODRqaTZk" class="social-link" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
         </div>
     </div>
 </footer>
 
-<script>
-    // Switch panel + highlight nav item
-    function switchPanel(navEl, panelId, group) {
-        var navContainer = navEl.closest('.sec-nav');
-        navContainer.querySelectorAll('.sec-nav-item').forEach(function(btn) {
-            btn.classList.remove('active');
-        });
-        navEl.classList.add('active');
+</div><!-- /#app -->
 
-        document.querySelectorAll('.' + group).forEach(function(p) {
-            p.classList.remove('active');
-        });
-        document.getElementById(panelId).classList.add('active');
-    }
-</script>
-
-<!-- Three.js Background -->
+<!-- ══════════════════════════════════════
+     THREE.JS SCENE
+══════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
 (function () {
-    var canvas = document.getElementById('bg-canvas');
-    var scene  = new THREE.Scene();
-    var W = window.innerWidth, H = window.innerHeight;
+    'use strict';
 
-    var camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 1000);
-    camera.position.set(0, 0, 55);
+    var canvas   = document.getElementById('bg-canvas');
+    var W        = window.innerWidth;
+    var H        = window.innerHeight;
+    var scene    = new THREE.Scene();
+    var camera   = new THREE.PerspectiveCamera(65, W / H, 0.1, 2000);
+    camera.position.set(0, 0, 65);
 
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: false });
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(W, H);
-    renderer.setClearColor(0x0d1117, 1);
+    renderer.setClearColor(0x030712, 1);
 
-    /* ---- Particles ---- */
-    var COUNT = 220;
-    var positions = new Float32Array(COUNT * 3);
-    for (var i = 0; i < COUNT; i++) {
-        positions[i * 3]     = (Math.random() - 0.5) * 240;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 130;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 70 - 10;
+    /* ───── STARS ───── */
+    var STAR_COUNT = 3200;
+    var starPos    = new Float32Array(STAR_COUNT * 3);
+    for (var i = 0; i < STAR_COUNT; i++) {
+        var theta = Math.random() * Math.PI * 2;
+        var phi   = Math.acos(2 * Math.random() - 1);
+        var r     = 200 + Math.random() * 350;
+        starPos[i*3]   = r * Math.sin(phi) * Math.cos(theta);
+        starPos[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+        starPos[i*3+2] = r * Math.cos(phi);
+    }
+    var starGeo = new THREE.BufferGeometry();
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+    var starMat = new THREE.PointsMaterial({
+        color: 0xc7d9ff, size: 0.45, transparent: true, opacity: 0.72
+    });
+    scene.add(new THREE.Points(starGeo, starMat));
+
+    /* ───── NEBULA CLOUDS ───── */
+    var nebulaDefs = [
+        { col: 0x0f2a6e, pos: [-70, 25, -130], r: 75, op: 0.045 },
+        { col: 0x3b0764, pos: [90, -30, -150], r: 85, op: 0.038 },
+        { col: 0x064e3b, pos: [20,  50, -110], r: 65, op: 0.032 },
+        { col: 0x172554, pos: [-30,-60, -100], r: 70, op: 0.030 }
+    ];
+    nebulaDefs.forEach(function(d) {
+        var g = new THREE.SphereGeometry(d.r, 7, 7);
+        var m = new THREE.MeshBasicMaterial({
+            color: d.col, transparent: true, opacity: d.op, side: THREE.BackSide
+        });
+        var mesh = new THREE.Mesh(g, m);
+        mesh.position.set(d.pos[0], d.pos[1], d.pos[2]);
+        scene.add(mesh);
+    });
+
+    /* ───── GRID FLOOR ───── */
+    var grid = new THREE.GridHelper(500, 90, 0x1e3a8a, 0x0d1e3f);
+    grid.position.y = -55;
+    grid.material.transparent = true;
+    grid.material.opacity = 0.40;
+    scene.add(grid);
+
+    /* ───── HERO ENERGY SPHERE (big wireframe icosahedron) ───── */
+    var energySphere = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(17, 2),
+        new THREE.MeshBasicMaterial({ color: 0x1e3a8a, wireframe: true, transparent: true, opacity: 0.07 })
+    );
+    energySphere.position.set(-22, 6, 8);
+    scene.add(energySphere);
+
+    /* ───── ORBITING RINGS around hero area ───── */
+    var rings = [];
+    var ringDefs = [
+        { maj:20, min:0.14, col:0x2563eb, op:0.28, rx: Math.PI/5,  ry:0 },
+        { maj:24, min:0.10, col:0x06b6d4, op:0.22, rx:-Math.PI/4, ry: Math.PI/5 },
+        { maj:28, min:0.08, col:0x7c3aed, op:0.16, rx: Math.PI/7,  ry:-Math.PI/8 }
+    ];
+    ringDefs.forEach(function(d) {
+        var m = new THREE.Mesh(
+            new THREE.TorusGeometry(d.maj, d.min, 6, 100),
+            new THREE.MeshBasicMaterial({ color: d.col, transparent: true, opacity: d.op })
+        );
+        m.rotation.x = d.rx; m.rotation.y = d.ry;
+        m.position.set(-22, 6, 8);
+        rings.push(m);
+        scene.add(m);
+    });
+
+    /* ───── FLOATING GEOMETRIC SHAPES ───── */
+    var shapes = [];
+    var shapeDefs = [
+        { geo: new THREE.IcosahedronGeometry(5.5, 1),       pos: [38,  14, -18], col:0x2563eb, op:0.11 },
+        { geo: new THREE.OctahedronGeometry(4.5),            pos: [-45,-14, -8],  col:0x06b6d4, op:0.14 },
+        { geo: new THREE.TorusGeometry(5.5, 1.1, 8, 50),    pos: [30, -22, -4],  col:0x1d4ed8, op:0.10 },
+        { geo: new THREE.IcosahedronGeometry(4, 1),          pos: [-20, 28, -28], col:0x7c3aed, op:0.12 },
+        { geo: new THREE.OctahedronGeometry(4),              pos: [48,  22, -14], col:0x0891b2, op:0.15 },
+        { geo: new THREE.TorusKnotGeometry(4, 1, 60, 8),    pos: [-42, 20, -22], col:0x2563eb, op:0.09 },
+        { geo: new THREE.IcosahedronGeometry(3, 0),          pos: [12, -32, -6],  col:0xd97706, op:0.16 },
+        { geo: new THREE.OctahedronGeometry(3),              pos: [-8,  36, -20], col:0x06b6d4, op:0.14 }
+    ];
+    shapeDefs.forEach(function(d) {
+        var m = new THREE.Mesh(d.geo,
+            new THREE.MeshBasicMaterial({ color: d.col, wireframe: true, transparent: true, opacity: d.op })
+        );
+        m.position.set(d.pos[0], d.pos[1], d.pos[2]);
+        shapes.push(m);
+        scene.add(m);
+    });
+
+    /* ───── PARTICLE CONSTELLATION (mid-field) ───── */
+    var PC = 180;
+    var pPos = new Float32Array(PC * 3);
+    for (var j = 0; j < PC; j++) {
+        pPos[j*3]   = (Math.random() - 0.5) * 200;
+        pPos[j*3+1] = (Math.random() - 0.5) * 110;
+        pPos[j*3+2] = (Math.random() - 0.5) * 55 - 8;
     }
     var pGeo = new THREE.BufferGeometry();
-    pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    var pMat = new THREE.PointsMaterial({
-        color: 0x3b82f6, size: 0.55,
-        sizeAttenuation: true, transparent: true, opacity: 0.80
-    });
-    var points = new THREE.Points(pGeo, pMat);
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+    var constellation = new THREE.Group();
+    constellation.add(new THREE.Points(pGeo,
+        new THREE.PointsMaterial({ color: 0x3b82f6, size: 0.52, transparent: true, opacity: 0.78 })
+    ));
 
-    /* ---- Constellation lines (pre-built, static in local space) ---- */
-    var LINE_DIST = 35;
-    var linesGroup = new THREE.Group();
-    var lineMat = new THREE.LineBasicMaterial({ color: 0x2563eb, transparent: true, opacity: 0.14 });
-    for (var a = 0; a < COUNT; a++) {
-        for (var b = a + 1; b < COUNT; b++) {
-            var dx = positions[a*3]   - positions[b*3];
-            var dy = positions[a*3+1] - positions[b*3+1];
-            var dz = positions[a*3+2] - positions[b*3+2];
-            if (Math.sqrt(dx*dx + dy*dy + dz*dz) < LINE_DIST) {
-                var lg = new THREE.BufferGeometry().setFromPoints([
-                    new THREE.Vector3(positions[a*3], positions[a*3+1], positions[a*3+2]),
-                    new THREE.Vector3(positions[b*3], positions[b*3+1], positions[b*3+2])
-                ]);
-                linesGroup.add(new THREE.Line(lg, lineMat));
+    var lineMat = new THREE.LineBasicMaterial({ color: 0x1e3a8a, transparent: true, opacity: 0.13 });
+    var MAX_D   = 32;
+    for (var a = 0; a < PC; a++) {
+        for (var b = a + 1; b < PC; b++) {
+            var dx = pPos[a*3] - pPos[b*3];
+            var dy = pPos[a*3+1] - pPos[b*3+1];
+            var dz = pPos[a*3+2] - pPos[b*3+2];
+            if (Math.sqrt(dx*dx + dy*dy + dz*dz) < MAX_D) {
+                constellation.add(new THREE.Line(
+                    new THREE.BufferGeometry().setFromPoints([
+                        new THREE.Vector3(pPos[a*3], pPos[a*3+1], pPos[a*3+2]),
+                        new THREE.Vector3(pPos[b*3], pPos[b*3+1], pPos[b*3+2])
+                    ]),
+                    lineMat
+                ));
             }
         }
     }
-
-    /* ---- Group them so they rotate together ---- */
-    var constellation = new THREE.Group();
-    constellation.add(points);
-    constellation.add(linesGroup);
     scene.add(constellation);
 
-    /* ---- Floating wireframe shapes ---- */
-    // TorusKnot — right side of hero
-    var tkGeo  = new THREE.TorusKnotGeometry(7, 1.6, 80, 12);
-    var tkMat  = new THREE.MeshBasicMaterial({ color: 0x2563eb, wireframe: true, transparent: true, opacity: 0.10 });
-    var torusKnot = new THREE.Mesh(tkGeo, tkMat);
-    torusKnot.position.set(28, 6, 4);
-    scene.add(torusKnot);
-
-    // Icosahedron — left side of hero
-    var iGeo = new THREE.IcosahedronGeometry(5.5, 1);
-    var iMat = new THREE.MeshBasicMaterial({ color: 0x3b82f6, wireframe: true, transparent: true, opacity: 0.12 });
-    var ico  = new THREE.Mesh(iGeo, iMat);
-    ico.position.set(-26, -4, 6);
-    scene.add(ico);
-
-    // Small octahedron accent
-    var oGeo = new THREE.OctahedronGeometry(3, 0);
-    var oMat = new THREE.MeshBasicMaterial({ color: 0x60a5fa, wireframe: true, transparent: true, opacity: 0.18 });
-    var octa = new THREE.Mesh(oGeo, oMat);
-    octa.position.set(10, -18, 12);
-    scene.add(octa);
-
-    /* ---- Mouse tracking (smooth) ---- */
-    var mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
-    document.addEventListener('mousemove', function (e) {
-        targetX = (e.clientX / window.innerWidth  - 0.5) * 2;
-        targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+    /* ───── MOUSE ───── */
+    var mx = 0, my = 0, tmx = 0, tmy = 0;
+    document.addEventListener('mousemove', function(e) {
+        tmx = (e.clientX / window.innerWidth  - 0.5) * 2;
+        tmy = (e.clientY / window.innerHeight - 0.5) * 2;
     });
 
-    /* ---- Scroll tracking ---- */
+    /* ───── SCROLL ───── */
     var scrollY = 0;
-    window.addEventListener('scroll', function () { scrollY = window.scrollY; }, { passive: true });
+    window.addEventListener('scroll', function() { scrollY = window.scrollY; }, { passive: true });
 
-    /* ---- Animation loop ---- */
-    var clock = 0;
+    /* ───── ANIMATE ───── */
+    var clk = 0;
     function animate() {
         requestAnimationFrame(animate);
-        clock += 0.004;
+        clk += 0.0032;
 
-        // Smooth mouse lerp
-        mouseX += (targetX - mouseX) * 0.04;
-        mouseY += (targetY - mouseY) * 0.04;
+        mx += (tmx - mx) * 0.045;
+        my += (tmy - my) * 0.045;
 
-        // Constellation: slow auto-rotation + mouse tilt
-        constellation.rotation.y = clock * 0.05 + mouseX * 0.07;
-        constellation.rotation.x = mouseY * 0.045;
+        /* Energy sphere */
+        energySphere.rotation.x = clk * 0.18;
+        energySphere.rotation.y = clk * 0.27;
 
-        // Shapes rotate independently
-        torusKnot.rotation.x = clock * 0.45;
-        torusKnot.rotation.y = clock * 0.30;
-        ico.rotation.x  = clock * 0.20;
-        ico.rotation.y  = clock * 0.38;
-        octa.rotation.x = clock * 0.55;
-        octa.rotation.z = clock * 0.35;
+        /* Orbiting rings */
+        rings[0].rotation.z = clk * 0.50;
+        rings[1].rotation.z = -clk * 0.35;
+        rings[2].rotation.z = clk * 0.22;
 
-        // Camera parallax on mouse
-        camera.position.x += (mouseX * 2.5 - camera.position.x) * 0.04;
-        camera.position.y += (-mouseY * 1.8 - camera.position.y) * 0.04;
+        /* Floating shapes */
+        shapes.forEach(function(s, k) {
+            s.rotation.x = clk * (0.14 + k * 0.04);
+            s.rotation.y = clk * (0.20 + k * 0.03);
+            s.position.y += Math.sin(clk * 0.9 + k * 1.4) * 0.004;
+        });
+
+        /* Constellation */
+        constellation.rotation.y = clk * 0.042 + mx * 0.06;
+        constellation.rotation.x = my * 0.04;
+
+        /* Camera mouse parallax */
+        camera.position.x += (mx * 3.5  - camera.position.x) * 0.038;
+        camera.position.y += (-my * 2.2 - camera.position.y) * 0.038;
+
+        /* Scroll: camera pulls back gently */
+        camera.position.z = 65 + scrollY * 0.009;
+
+        /* Grid rises slightly with scroll */
+        grid.position.y = -55 + scrollY * 0.006;
+
         camera.lookAt(scene.position);
-
-        // Scroll: drift constellation upward as user scrolls
-        constellation.position.y = -scrollY * 0.018;
-
         renderer.render(scene, camera);
     }
     animate();
 
-    /* ---- Resize ---- */
-    window.addEventListener('resize', function () {
+    /* ───── RESIZE ───── */
+    window.addEventListener('resize', function() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
 })();
+</script>
+
+<!-- ══════════════════════════════════════
+     3D CARD TILT
+══════════════════════════════════════ -->
+<script>
+(function () {
+    var cards = document.querySelectorAll('.tilt');
+    cards.forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
+            var y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+            card.style.transform =
+                'perspective(900px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 8) + 'deg) translateZ(6px)';
+            card.style.boxShadow =
+                (-x * 18) + 'px ' + (y * 14) + 'px 44px rgba(0,0,0,0.55),' +
+                ' 0 0 28px rgba(59,130,246,0.18)';
+        });
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+        });
+    });
+})();
+</script>
+
+<!-- ══════════════════════════════════════
+     TAB SWITCHING
+══════════════════════════════════════ -->
+<script>
+function switchPanel(btn, panelId, group) {
+    var nav = btn.closest('.tab-nav');
+    if (!nav) nav = btn.parentElement;
+    nav.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    document.querySelectorAll('.' + group).forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById(panelId).classList.add('active');
+
+    /* Re-attach tilt listener to newly shown card */
+    var panel = document.getElementById(panelId);
+    if (panel && panel.classList.contains('tilt')) {
+        panel.addEventListener('mousemove', tiltHandler);
+        panel.addEventListener('mouseleave', tiltReset);
+    }
+}
+
+function tiltHandler(e) {
+    var rect = this.getBoundingClientRect();
+    var x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
+    var y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+    this.style.transform =
+        'perspective(900px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 8) + 'deg) translateZ(6px)';
+    this.style.boxShadow =
+        (-x * 18) + 'px ' + (y * 14) + 'px 44px rgba(0,0,0,0.55), 0 0 28px rgba(59,130,246,0.18)';
+}
+
+function tiltReset() {
+    this.style.transform = '';
+    this.style.boxShadow = '';
+}
 </script>
 
 </body>
